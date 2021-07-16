@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@import '_abstracts/_mixins';
+@import '_abstracts/_variables';
+@import '_base/_typography';
+@import '_base/_global';
+@import '_base/_about';
+@import '_base/color_control';
+@import '_layout/_footer';
+@import '_layout/_forms';
+@import '_layout/_header';
+@import '_layout/_banner';
+@import '_layout/_dashboard';
+@import '_layout/_section';
+@import '_layout/_sidebar';
+@import '_layout/_animation';
+@import '_layout/_blog';
+@import '_components/_buttons';
+
+.menu {
+    >li {
+        &:last-child {
+            .submenu {
+                left: unset;
+                right: 0;
+            }
+        }
+    }
+}
+.pagination {
+    margin: -3px;
+    margin-top: 25px;
+    justify-content: center;
+
+    .page-item {
+        text-align: center;
+        padding: 3px;
+
+        a,
+        span {
+            width: 38px;
+            height: 38px;
+            line-height: 38px;
+            @include border-radius(3px);
+            background: rgba($color: $base-color, $alpha:.2);
+            color: $title-color;
+            padding: 0;
+            display: block;
+            margin: 0;
+            border: 1px solid rgba($color:$title-color, $alpha:.2);
+            span {
+                border: none;
+                line-height: 34px;
+            }
+            &.active,
+            &:hover {
+                background: $base-color;
+                color: $white-color;
+                border: 1px solid rgba($color:$title-color, $alpha:.2);
+                span {
+                    border: none;
+                }
+            }
+        }
+
+
+
+        &.disabled {
+            span {
+                background: rgba($color:$base-color, $alpha:.3);
+                border: none;
+                color: $title-color;
+            }
+        }
+    }
+}
+a {
+    text-decoration: none;
+}
+
+
+
+.langSel {
+    background: rgba($color:$white-color, $alpha:.1);
+    backdrop-filter: blur(10px);
+    height: 35px;
+    border: 1px solid rgba($color:$white-color, $alpha:.1);
+    color: #fff;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    option {
+        background: $dark-color;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}
+.bg--glass {
+    background: rgba($color:$base-color, $alpha:.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($color:$white-color, $alpha:.2);
+}
