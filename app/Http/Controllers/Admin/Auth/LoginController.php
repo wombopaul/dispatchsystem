@@ -46,7 +46,6 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        dd("here");
         $pageTitle = "Admin Login";
         return view('admin.auth.login', compact('pageTitle'));
     }
