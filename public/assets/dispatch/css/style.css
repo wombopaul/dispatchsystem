@@ -191,10 +191,24 @@ body {
     position: relative;
     margin-bottom: 25px;
 }
+.inner .form-row2 {
+    display: flex;
+    margin: 0 -15px;
+    position: relative;
+    margin-bottom: 25px;
+}
 .inner .form-row .form-row-inner {
     position: relative;
 }
+.inner .form-row2 .form-row-inner {
+    position: relative;
+}
 .inner .form-row .form-holder {
+    width: 50%;
+    padding: 0 15px;
+    position: relative;
+}
+.inner .form-row2 .form-holder {
     width: 50%;
     padding: 0 15px;
     position: relative;
@@ -203,7 +217,25 @@ body {
 	width: 100%;
 	position: relative;
 }
+.inner .form-row2 .form-holder.form-holder-2 {
+	width: 100%;
+	position: relative;
+}
 .inner .form-row .form-holder .label {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    transform-origin: 0 0;
+    transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+}
+.inner .form-row2 .form-holder .label {
     position: absolute;
     top: 6px;
     left: 10px;
@@ -226,7 +258,22 @@ body {
     font-weight: 400;
     margin-bottom: 20px;
 }
+.inner .form-row2 .form-holder label.special-label {
+    display: block;
+    float: none;
+    padding-right: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
 .inner .form-row .form-holder label.special-label-1 {
+	font-weight: 600;
+	font-size: 14px;
+	color: #55e8d5;
+}
+
+.inner .form-row2 .form-holder label.special-label-1 {
 	font-weight: 600;
 	font-size: 14px;
 	color: #55e8d5;
@@ -262,8 +309,46 @@ body {
     -o-box-sizing: border-box;
     -ms-box-sizing: border-box;
 }
+.inner .form-row2 .form-holder input,
+.inner .form-row2 .form-holder select {
+    width: 100%;
+    padding: 11.5px 20px;
+    border: none;
+    appearance: unset;
+    -moz-appearance: unset;
+    -webkit-appearance: unset;
+    -o-appearance: unset;
+    -ms-appearance: unset;
+    outline: none;
+    -moz-outline: none;
+    -webkit-outline: none;
+    -o-outline: none;
+    -ms-outline: none;
+    background: transparent;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(255,255,255,0.3);
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
 .inner .form-row .form-holder .form-control:focus + .label, 
 .inner .form-row .form-holder .form-control:valid + .label {
+    transform: translateY(-34px) scale(0.9);
+    -moz-transform: translateY(-34px) scale(0.9);
+    -webkit-transform: translateY(-34px) scale(0.9);
+    -o-transform: translateY(-34px) scale(0.9);
+    -ms-transform: translateY(-34px) scale(0.9);
+    color: #55e8d5;
+}
+
+.inner .form-row2 .form-holder .form-control:focus + .label, 
+.inner .form-row2 .form-holder .form-control:valid + .label {
     transform: translateY(-34px) scale(0.9);
     -moz-transform: translateY(-34px) scale(0.9);
     -webkit-transform: translateY(-34px) scale(0.9);

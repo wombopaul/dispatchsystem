@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $general->sitename($pageTitle ?? '') }}</title>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dispatch/css/opensans-font.css')}}">
+    <!-- <link rel="stylesheet" href="{{ asset('assets/staff/css/vendor/bootstrap.min.css') }}"> -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/dispatch/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
 	<!-- datepicker -->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/dispatch/css/jquery-ui.min.css')}}">
@@ -42,3 +43,11 @@
 
 </body>
 </html>
+
+<script>
+//    $(function(){
+//       $(".form-row").hide() // try to hide google navigation bar
+//     $("").hide()
+//    });
+</script>
+

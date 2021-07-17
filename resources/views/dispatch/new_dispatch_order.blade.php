@@ -10,21 +10,26 @@
 			            	<p class="step-icon"><span>1</span></p>
 			            	<span class="step-text">Personal Info</span>
 			            </h2>
-			            <section>
+                       
+			            <section class="d-none">
 			                <div class="inner">
 			                	<div class="form-heading">
 			                		<h3>Personal Info</h3>
 			                		<span>1/4</span>
 			                	</div>
-                                <div class="form-row">
+
+                                
+                                <div class="form-row2">
 									<div class="form-holder form-holder-2">
 										<label class="form-row-inner">
-											<input type="text" class="form-control" id="address" name="address" required>
+											<input type="text" class="form-control" id="address" name="address" required placaholder="Enter a phone number to Proceed">
 											<span class="label">Phone Number</span>
 										</label>
 									</div>
-								</div>
-								<div class="form-row">
+								</div> 
+
+
+								<div class="form-row" id="form-row">
 									<div class="form-holder">
 										<label class="form-row-inner">
 											<input type="text" class="form-control" id="first_name" name="first_name" required>
