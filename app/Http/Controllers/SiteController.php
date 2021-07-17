@@ -47,6 +47,10 @@ class SiteController extends Controller
         return view($this->activeTemplate . 'pages', compact('pageTitle','sections'));
     }
 
+    public function newDispatchOrder(){
+        dd("here");
+        return view("dispatch.patials.new_dispatch_order");
+    }
 
     public function contact()
     {

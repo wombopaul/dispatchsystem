@@ -19,10 +19,16 @@
                         <option value="{{$item->code}}" @if(session('lang') == $item->code) selected  @endif>{{ __($item->name) }}</option>
                     @endforeach
                 </select>
-
+                 <!------------------  Tracking Menu -------------------->
+                <div class="right-area d-none d-md-block">
+                    <a href="{{ route('order.new') }}" class="cmn--btn btn--sm mr-3" target="_blank" >@lang('Book a Delivery')</a>
+                </div>
+                <!------------------  Order Menu  -------------------->
                 <div class="right-area d-none d-md-block">
                     <a href="{{route('order.tracking')}}" class="cmn--btn btn--sm mr-3">@lang('Order Tracking')</a>
                 </div>
+
+                
             </div>
         </div>
     </div>
@@ -51,7 +57,7 @@
                         </select>
 
                         <a href="{{route('order.tracking')}}" class="cmn--btn btn--sm mr-3">@lang('Order Tracking')</a>
-                         <a href="{{route('order.tracking')}}" class="cmn--btn btn--sm mr-3">@lang('New Dispatch Order')</a>
+                        
                         <ul class="header-contact-info">
                             <li>
                                 <a href="Mailto:{{__(@$footer->data_values->email)}}"><i class="las la-email"></i> {{__(@$footer->data_values->email)}}</a>

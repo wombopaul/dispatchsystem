@@ -26,6 +26,7 @@
 <body>
     @stack('fbComment')
     <div class="overlay"></div>
+    <div id="modal-placeholder"></div>
     <a href="#0" class="scrollToTop"><i class="las la-angle-up"></i></a>
     <div class="preloader">
         <div class="loader"></div>
@@ -54,6 +55,7 @@
 
 
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.validate.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/rafcounter.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/lightbox.min.js')}}"></script>
@@ -63,6 +65,7 @@
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/select2.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/main.js')}}"></script>
+
 
     @stack('script-lib')
     @stack('script')
@@ -89,6 +92,70 @@
             });
         });
         });
+
+    </script>
+    <script asp-append-version="true">
+        $(document).ready(function () {
+            var placeholderElement = $('#modal-placeholder');
+
+            $(document).on('click', '.modal-validate', function (event) {
+                // on();
+                var url = $(this).data('url');
+                $.get(url).done(function (data) {
+                    // off();
+                    placeholderElement.html(data);
+                    placeholderElement.find('.modal').modal('show');
+                });
+
+                $.validator.setDefaults({
+                    submitHandler: function (form) {
+                        var urlTarget = $(form).data('targeturl');
+
+                        var targetDiv = $(form).data('targetdiv');
+                        //alert(targetDiv);
+                        var actionUrl = $(form).attr('action');
+                        var dataToSend = new FormData($(form)[0]); // $(form).serialize();// new FormData($(form)[0]);
+                        $.ajax({
+                            type: "POST",
+                            url: actionUrl,
+                            data: dataToSend,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                off();
+                                if (data.status) {
+                                    placeholderElement.find('.modal').modal('hide');
+                                    toastr.success(data.msg);
+                                    if (urlTarget != null && targetDiv == "innerTab") {
+                                        LoadInnerTab(urlTarget);
+                                    }
+                                    if (urlTarget != null && targetDiv != "innerTab") {
+                                        Load(urlTarget);
+                                    }
+                                }
+                                else {
+                                    placeholderElement.find('#msg').addClass('alert alert-danger').text(data.msg).show();
+                                    toastr.error(data.msg);
+                                    off();
+
+                                }
+                            }
+                        });
+                        off();
+                        return false;
+                    }
+                });
+                // custom validation for blob (images and select)
+
+                $.validator.addMethod("mprequired", function (value, element) {
+                    if ((value > 0 && value !== null) || value.length > 0) {
+                        return value;
+                    }
+                }, $.validator.messages.required)
+            });
+
+        });
+
     </script>
     
         

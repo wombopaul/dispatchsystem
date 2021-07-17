@@ -308,3 +308,4 @@ Route::get('blog/{id}/{slug}', 'SiteController@blogDetails')->name('blog.details
 Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name('placeholder.image');
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');
+Route::get('/order/new', 'DispatchController@newDispatchOrder')->name('order.new');
