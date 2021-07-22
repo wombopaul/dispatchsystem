@@ -253,7 +253,7 @@ Route::namespace('Staff')->name('staff.')->prefix('staff')->group(function () {
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/verify-code', 'Auth\ForgotPasswordController@verifyCode')->name('password.verify.code');
 
-    Route::middleware('auth')->group(function () {
+    // Route::middleware('auth')->group(function () {
         Route::middleware(['checkStatus'])->group(function () {
             Route::middleware('staff')->group(function () {
                 Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
@@ -286,7 +286,7 @@ Route::namespace('Staff')->name('staff.')->prefix('staff')->group(function () {
                 Route::post('twofactor/disable', 'HomeController@disable2fa')->name('twofactor.disable');
             });
         });
-    });
+    // });
 });
 
 Route::name('user.')->prefix('user')->group(function () {
@@ -309,3 +309,5 @@ Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name(
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');
 Route::get('/order/new', 'DispatchController@newDispatchOrder')->name('order.new');
+Route::post('dispatch/store', 'DispatchController@store')->name('dispatch.order.store');
+Route::get('dispatch/invoice/{id}', 'DispatchController@invoice')->name('dispatch.invoice');

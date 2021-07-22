@@ -1,193 +1,218 @@
-@extends('dispatch.layouts.app')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
-<div class="page-content">
-    <div class="wizard-v6-content">
-   <div class="wizard-form">
-		        <form class="form-register"  action="#" method="post">
-		        	<div id="form-total">
-		        		<!-- SECTION 1 -->
-			            <h2>
-			            	<p class="step-icon"><span>1</span></p>
-			            	<span class="step-text">Personal Info</span>
-			            </h2>
-                       
-			            <section class="d-none">
-			                <div class="inner">
-			                	<div class="form-heading">
-			                		<h3>Personal Info</h3>
-			                		<span>1/4</span>
-			                	</div>
+    <div class="row mb-none-30 mt-30">
+        <div class="col-lg-12 mb-30">
+            <div class="card mt-5 p-5">
+                <div class="card-body pt-5">
+                    <form action="{{route('dispatch.order.store')}}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card border--primary mt-3">
+                                    <h5 class="card-header bg--primary  text-white">@lang('Pick up Information')</h5>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label for="sender_name" class="form-control-label font-weight-bold">@lang('Name')</label>
+                                                <input type="text" class="form-control form-control-lg" id="sender_name" name="sender_name" value="{{old('sender_name')}}" placeholder="@lang("Enter Sender Name")"  maxlength="40" required="">
+                                            </div>
 
-                                
-                                <div class="form-row2">
-									<div class="form-holder form-holder-2">
-										<label class="form-row-inner">
-											<input type="text" class="form-control" id="address" name="address" required placaholder="Enter a phone number to Proceed">
-											<span class="label">Phone Number</span>
-										</label>
-									</div>
-								</div> 
+                                             <div class="form-group col-lg-6">
+                                                <label for="sender_phone" class="form-control-label font-weight-bold">@lang('Phone')</label>
+                                                <input type="text" class="form-control form-control-lg" id="phone" value="{{old('sender_phone')}}" name="sender_phone" placeholder="@lang("Enter Sender Phone")"  maxlength="40" required="">
+                                            </div>
+                                        </div>
 
+                                        <div class="row">
+                                            <div class="form-group col-lg-12">
+                                                <label for="sender_email" class="form-control-label font-weight-bold">@lang('Email')</label>
+                                                <input type="email" class="form-control form-control-lg" id="sender_email" name="sender_email" value="{{old('sender_email')}}" placeholder="@lang("Enter Sender Email")"  maxlength="40" required="">
+                                            </div>
+                                        </div>
 
-								<div class="form-row" id="form-row">
-									<div class="form-holder">
-										<label class="form-row-inner">
-											<input type="text" class="form-control" id="first_name" name="first_name" required>
-											<span class="label">First Name</span>
-										</label>
-									</div>
-									<div class="form-holder">
-										<label class="form-row-inner">
-											<input type="text" class="form-control" id="last_name" name="last_name" required>
-											<span class="label">Last Name</span>
-										</label>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder">
-										<label class="form-row-inner">
-											<input type="text" class="form-control" id="phone" name="phone" required>
-											<span class="label">Phone Number</span>
-										</label>
-									</div>
-									<div class="form-holder">
-										<label class="form-row-inner">
-											<input type="text" name="your_email_1" id="your_email_1" class="form-control"  required>
-											<span class="label">E-Mail</span>
-										</label>
-									</div>
-								</div>
-								
-								
-                                <div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label class="form-row-inner">
-											<input type="text" class="form-control" id="address" name="address" required>
-											<span class="label">My Location</span>
-										</label>
-									</div>
-								</div>
-							</div>
-			            </section>
-						<!-- SECTION 2 -->
-			            <h2>
-			            	<p class="step-icon"><span>2</span></p>
-			            	<span class="step-text">Select Vehicle</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="form-heading">
-			                		<h3>Select your Cargo Weight</h3>
-			                		<span>2/4</span>
-			                	</div>
-		                		<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label class="form-row-inner">
-											<input type="text" class="form-control" id="address" name="address" required>
-											<span class="label">My Location</span>
-										</label>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="room" class="special-label-1">Describe your Cargo</label>
-										<select name="room" id="room" class="form-control">
-											<option value="Daily Design Metting - Metting Room No.1" selected>Select Vehicle Type</option>
-											<option value="Single">Motorcycle(10kg)</option>
-											<option value="Double">Car(20kg)</option>
-										</select>
-										<span class="select-btn">
-											<i class="zmdi zmdi-chevron-down pt-2"></i>
-										</span>
-									</div>
-								</div>
-								
-							</div>
-			            </section>
-			           
-			            <h2>
-			            	<p class="step-icon"><span>3</span></p>
-			            	<span class="step-text">Destination</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="form-heading">
-			                		<h3></h3>
-			                		<span>3/4</span>
-			                	</div>
-		                		
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="room" class="special-label-1">Your Location</label>
-										<input name="room" id="room" class="form-control" placeholder="select the closet road map to you">
-											
-										</select>
-										<span class="select-btn">
-											<i class="zmdi zmdi-chevron-down"></i>
-										</span>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-holder form-holder-2">
-										<label for="room" class="special-label-1">Recievers Location</label>
-										<input name="room" id="room" class="form-control" placeholder="select the closet road map to you">
-											
-										</select>
-										<span class="select-btn">
-											<i class="zmdi zmdi-chevron-down"></i>
-										</span>
-									</div>
-								</div>
-							</div>
-			            </section>
-			            <!-- SECTION 3 -->
-			            <h2>
-			            	<p class="step-icon"><span>4</span></p>
-			            	<span class="step-text">Send Consignment</span>
-			            </h2>
-			            <section>
-			                <div class="inner">
-			                	<div class="form-heading">
-			                		<h3>Comfirm Details</h3>
-			                		<span>4/4</span>
-			                	</div>
-								<div class="table-responsive">
-									<table class="table">
-										<tbody>
-											<tr class="space-row">
-												<th>Consignment Details:</th>
-												<td >1kg Percel of envilope</td>
-											</tr>
-											<tr class="space-row">
-												<th>Estimated Distance</th>
-												<td >3km</td>
-											</tr>
-											<tr class="space-row">
-												<th>Estmated Time of Delivery</th>
-												<td >50mins Less traffic</td>
-											</tr>
-											
-											<tr class="space-row">
-												<th>Consignment Cost:</th>
-												<td >N4000</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-			            </section>
-		        	</div>
-		        </form> 
-			</div> 
-     </div>
-</div>    
+                                        <div class="row">
+                                            <div class="form-group col-lg-12">
+                                                <label for="sender_address" class="form-control-label font-weight-bold">@lang('Address')</label>
+                                                <input type="text" class="form-control form-control-lg" id="sender_address" name="sender_address" value="{{old('sender_address')}}" placeholder="@lang("Enter pick up Address")"  maxlength="255" required="">
+                                            </div>
+                                        </div>  
+                                    </div> 
+                                </div>
+                            </div>
 
 
+                             <div class="col-lg-6">
+                                <div class="card border--primary mt-3">
+                                    <h5 class="card-header bg--primary  text-white">@lang('Drop off Information')</h5>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="form-group col-lg-6 d-none">
+                                                <label for="=branch" class="form-control-label font-weight-bold">@lang('Select Branch')</label>
+                                                <select class="form-control form-control-lg" name="branch" id="branch" required="">
+                                                    {{-- <option value="">@lang('Select One')</option> --}}
+                                                    @foreach($branchs as $branch)
+                                                        <option value="{{$branch->id}}" {{ $branch->id == 1 ? "selected" : ""}}>{{__($branch->name)}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+ </div> 
+ <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label for="receiver_name" class="form-control-label font-weight-bold">@lang('Name')</label>
+                                                <input type="text" class="form-control form-control-lg" id="receiver_name" name="receiver_name" value="{{old('receiver_name')}}" placeholder="@lang("Enter Receiver Name")"  maxlength="40" required="">
+                                            </div>
+                                       
+
+                                       
+                                            <div class="form-group col-lg-6">
+                                                <label for="receiver_phone" class="form-control-label font-weight-bold">@lang('Phone')</label>
+                                                <input type="text" class="form-control form-control-lg" id="receiver_phone" name="receiver_phone" placeholder="@lang("Enter Receiver Phone")" value="{{old('receiver_phone')}}" required="">
+                                            </div>
+
+                                            <div class="row">
+                                            <div class="form-group col-lg-12">
+                                                <label for="receiver_email" class="form-control-label font-weight-bold">@lang('Email')</label>
+                                                <input type="email" class="form-control form-control-lg" id="receiver_email" name="receiver_email" value="{{old('receiver_email')}}" placeholder="@lang("Enter Receiver Email")"  required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-12">
+                                                <label for="receiver_address" class="form-control-label font-weight-bold">@lang('Address')</label>
+                                                <input type="text" class="form-control form-control-lg" id="receiver_address" name="receiver_address" placeholder="@lang("Enter drop off Address")" value="{{old('receiver_address')}}"  required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row mb-30">
+                            <div class="col-lg-12">
+                                <div class="card border--primary mt-3">
+                                    <h5 class="card-header bg--primary  text-white">@lang('Package Information')
+                                        <button type="button" class="btn btn-sm btn-outline-light float-right addUserData"><i class="la la-fw la-plus"></i>@lang('Add New One')
+                                        </button>
+                                    </h5>
+
+                                    <div class="card-body">
+                                        <div class="row addedField">
+                                            <div class="col-md-12 user-data">
+                                                <div class="form-group">
+                                                    <div class="input-group mb-md-0 mb-4">
+                                                        <div class="col-md-4">
+                                                            <select class="form-control form-control-lg" id="courier_type_0" onchange="currierType(0)" name="courierName[]">
+                                                                <option>@lang('Select One')</option>
+                                                                @foreach($types as $type)
+                                                                    <option value="{{$type->id}}" data-unit="{{$type->unit->name}}" data-price={{ getAmount($type->price)}}>{{__($type->name)}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3 mt-md-0 mt-2">
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" class="form-control form-control-lg currier_quantity_0" placeholder="@lang('Quantity')" disabled="" name="quantity[]" onkeyup="courierQuantity(0)" aria-label="Recipient's username" aria-describedby="basic-addon2" required="">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="unit_0"><i class="las la-balance-scale"></i></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3 mt-md-0 mt-2">
+                                                           <div class="input-group mb-3">
+                                                                <input type="text" id="amount" class="form-control form-control-lg currier_fee_0" placeholder="@lang('Enter Price')" name="amount[]" aria-label="Recipient's username" aria-describedby="basic-addon2" required="" readonly="">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="basic-addon2">{{$general->cur_text}}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                </div>
+                            </div>
+                        </div> 
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn--primary btn-block"><i class="fa fa-fw fa-paper-plane"></i> @lang('Send')</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+@push('script')
+<script>
+    "use strict";
+    function currierType(id) {
+        let unit = $("#courier_type_" + id).find(':selected').data('unit');
+        let price = $("#courier_type_" + id).find(':selected').data('price');
+        $("#unit_" + id).html(unit);
 
+        if ($('#courier_type_' + id).val()) {
+            $(".currier_quantity_" + id).removeAttr("disabled");
+        }
+    }
 
+    function courierQuantity(id)
+    {
+        let quantity = $(".currier_quantity_" + id).val();
+        let price = $("#courier_type_" + id).find(':selected').data('price');
+        $(".currier_fee_" + id).val(quantity * price);
+    }
 
+    $(document).ready(function () {
+        let id = 0;
+        $('.addUserData').on('click', function () {
+            id++;
+            let html = `<div class="col-md-12 user-data">
+                            <div class="form-group">
+                                <div class="input-group mb-md-0 mb-4">
+                                    <div class="col-md-4">
+                                        <select class="form-control form-control-lg" id="courier_type_${id}" onchange="currierType(${id})" name="courierName[]" required="">
+                                            <option>@lang('Select One')</option>
+                                            @foreach($types as $type)
+                                                <option value="{{$type->id}}" data-unit="{{$type->unit->name}}" data-price={{ getAmount($type->price)}}>{{__($type->name)}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 mt-md-0 mt-2">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control form-control-lg currier_quantity_${id}" placeholder="@lang('Quantity')" disabled="" onkeyup="courierQuantity(${id})" name="quantity[]" aria-label="Recipient's username" aria-describedby="basic-addon2" required="">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="unit_${id}"><i class="las la-balance-scale"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-md-3 mt-md-0 mt-2">
+                                       <div class="input-group mb-3">
+                                            <input type="text" id="amount" class="form-control form-control-lg currier_fee_${id}" placeholder="@lang('Enter Price')" name="amount[]" aria-label="Recipient's username" aria-describedby="basic-addon2" required="" readonly="">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="basic-addon2">{{$general->cur_text}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-md-2 mt-md-0 mt-2 text-right">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn--danger btn-lg removeBtn w-100" type="button">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </span>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>`;
+            $('.addedField').append(html)
+        });
 
+        $(document).on('click', '.removeBtn', function () {
+            $(this).closest('.user-data').remove();
+        });
+    });
+</script>
+@endpush
