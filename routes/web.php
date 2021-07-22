@@ -271,7 +271,8 @@ Route::namespace('Staff')->name('staff.')->prefix('staff')->group(function () {
                 Route::get('courier/send', 'CourierController@create')->name('courier.create');
                 Route::post('courier/store', 'CourierController@store')->name('courier.store');
                 Route::get('courier/invoice/{id}', 'CourierController@invoice')->name('courier.invoice');
-                Route::get('courier/delivery/list', 'CourierController@delivery')->name('delivery.list');
+                Route::get('courier/delivery/list', 'CourierController@delivery')->name('delivery.list');                
+                Route::get('courier/online/list', 'CourierController@onlinedelivery')->name('online.delivery.list');
                 Route::get('courier/details/{id}', 'CourierController@details')->name('courier.details');
                 Route::post('courier/payment', 'CourierController@payment')->name('courier.payment');
                 Route::post('courier/delivery/store', 'CourierController@deliveryStore')->name('courier.delivery');

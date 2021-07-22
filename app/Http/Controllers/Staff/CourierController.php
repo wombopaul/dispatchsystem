@@ -110,7 +110,7 @@ class CourierController extends Controller
     }
 
 
-     public function courierDateSearch(Request $request)
+    public function courierDateSearch(Request $request)
     {
         $user = Auth::user();
         $search = $request->date;
@@ -153,8 +153,17 @@ class CourierController extends Controller
         $user = Auth::user();
         $pageTitle = "Courier Delivery List";
         $emptyMessage = "No data found";
-        $courierDeliveys = CourierInfo::where('receiver_branch_id', $user->branch_id)->orderBy('id', 'DESC')->with('senderBranch','receiverBranch', 'senderStaff', 'receiverStaff', 'paymentInfo')->paginate(getPaginate());
+        $courierDeliveys = CourierInfo::where(['receiver_branch_id'=> $user->branch_id, 'is_online'=> 0])->orderBy('id', 'DESC')->with('senderBranch','receiverBranch', 'senderStaff', 'receiverStaff', 'paymentInfo')->paginate(getPaginate());
         return view('staff.courier.delivery', compact('pageTitle', 'emptyMessage', 'courierDeliveys'));
+    }
+
+    public function onlinedelivery()
+    {
+        $user = Auth::user();
+        $pageTitle = "Online Dispatch List";
+        $emptyMessage = "No data found";
+        $courierDeliveys = CourierInfo::where('is_online', 1)->orderBy('id', 'DESC')->with('senderBranch','receiverBranch', 'senderStaff', 'receiverStaff', 'paymentInfo')->paginate(getPaginate());
+        return view('staff.courier.onlinedelivery', compact('pageTitle', 'emptyMessage', 'courierDeliveys'));
     }
 
 

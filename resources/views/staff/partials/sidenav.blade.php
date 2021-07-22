@@ -18,6 +18,13 @@
                         <span class="menu-title">@lang('Dashboard')</span>
                     </a>
                 </li>
+                <li class="sidebar-menu-item {{menuActive('staff.online.delivery.list')}}">
+                    <a href="{{route('staff.online.delivery.list')}}" class="nav-link"
+                       data-default-url="{{ route('staff.online.delivery.list') }}">
+                        <i class="menu-icon las la-paper-plane"></i>
+                        <span class="menu-title">@lang('Online Request')</span>
+                    </a>
+                </li>
                 
                 <li class="sidebar-menu-item {{menuActive('staff.courier.create')}}">
                     <a href="{{route('staff.courier.create')}}" class="nav-link"
