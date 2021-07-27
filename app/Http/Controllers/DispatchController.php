@@ -30,6 +30,7 @@ class DispatchController extends Controller
 
     public function store(Request $request)
     {
+      
         $request->validate([
             'branch' => 'required|exists:branches,id',
             'sender_name' => 'required|max:40',
@@ -45,6 +46,7 @@ class DispatchController extends Controller
             'amount' => 'required|array',
             'amount.*' => 'numeric|gt:0',
         ]);
+      
         //$sender = Auth::user();
         $courier = new CourierInfo();
         $courier->invoice_id = getTrx();
@@ -61,6 +63,7 @@ class DispatchController extends Controller
         $courier->receiver_address = $request->receiver_address;
         $courier->receiver_branch_id = $request->branch;
         $courier->status = 0;
+        $courier->is_online = 1;
         $courier->save();
 
         $totalAmount = 0;

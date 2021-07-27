@@ -41,7 +41,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('password/reset/change', 'ResetPasswordController@reset')->name('password.change');
     });
 
-    Route::middleware('admin')->group(function () {
+     Route::middleware('admin')->group(function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
         Route::get('branch-manager/{id}', 'AdminController@branchManager')->name('manager.branch');
         Route::get('branch/courier/list/{id}', 'AdminController@branchCourierList')->name('branch.courier.list');
@@ -181,7 +181,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             Route::get('manage-section/{id}', 'PageBuilderController@manageSection')->name('manage.section');
             Route::post('manage-section/{id}', 'PageBuilderController@manageSectionUpdate')->name('manage.section.update');
         });
-    });
+     });
 });
 
 /*
@@ -202,7 +202,7 @@ Route::namespace('Manager')->name('manager.')->prefix('manager')->group(function
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/verify-code', 'Auth\ForgotPasswordController@verifyCode')->name('password.verify.code');
 
-    Route::middleware('auth')->group(function () {
+    // Route::middleware('auth')->group(function () {
         Route::middleware(['checkStatus'])->group(function () {
             Route::middleware('manager')->group(function () {
                 Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
@@ -237,7 +237,7 @@ Route::namespace('Manager')->name('manager.')->prefix('manager')->group(function
                 Route::post('twofactor/disable', 'HomeController@disable2fa')->name('twofactor.disable');
             });
         });
-    });
+    // });
 });
 
 
@@ -291,11 +291,11 @@ Route::namespace('Staff')->name('staff.')->prefix('staff')->group(function () {
 });
 
 Route::name('user.')->prefix('user')->group(function () {
-    Route::middleware('auth')->group(function () {
+    // Route::middleware('auth')->group(function () {
         Route::get('authorization', 'AuthorizationController@authorizeForm')->name('authorization');
         Route::get('resend-verify', 'AuthorizationController@sendVerifyCode')->name('send.verify.code');
         Route::post('verify-g2fa', 'AuthorizationController@g2faVerification')->name('go2fa.verify');
-    });
+    // });
 });
 
 Route::get('/menu/{slug}/{id}', 'SiteController@footerMenu')->name('footer.menu');

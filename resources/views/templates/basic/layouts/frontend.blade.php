@@ -41,7 +41,7 @@
 
 
 
-    <div class="cookie__wrapper @if(session('cookie_accepted')) d-none @endif">
+    {{-- <div class="cookie__wrapper @if(session('cookie_accepted')) d-none @endif">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-between">
             <p class="txt my-2">
@@ -51,7 +51,7 @@
               <button class="cmn--btn my-2 policy">@lang('Accept')</button>
           </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script>

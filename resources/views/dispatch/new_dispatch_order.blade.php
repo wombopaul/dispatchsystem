@@ -55,20 +55,16 @@
                                                     @endforeach
                                                 </select>
                                             </div>
- </div> 
- <div class="row">
+                                        </div> 
+                                        <div class="row">
                                             <div class="form-group col-lg-6">
                                                 <label for="receiver_name" class="form-control-label font-weight-bold">@lang('Name')</label>
                                                 <input type="text" class="form-control form-control-lg" id="receiver_name" name="receiver_name" value="{{old('receiver_name')}}" placeholder="@lang("Enter Receiver Name")"  maxlength="40" required="">
                                             </div>
-                                       
-
-                                       
                                             <div class="form-group col-lg-6">
                                                 <label for="receiver_phone" class="form-control-label font-weight-bold">@lang('Phone')</label>
                                                 <input type="text" class="form-control form-control-lg" id="receiver_phone" name="receiver_phone" placeholder="@lang("Enter Receiver Phone")" value="{{old('receiver_phone')}}" required="">
                                             </div>
-
                                             <div class="row">
                                             <div class="form-group col-lg-12">
                                                 <label for="receiver_email" class="form-control-label font-weight-bold">@lang('Email')</label>
@@ -90,7 +86,7 @@
                         <div class="row mb-30">
                             <div class="col-lg-12">
                                 <div class="card border--primary mt-3">
-                                    <h5 class="card-header bg--primary  text-white">@lang('Package Information')
+                                    <h5 class="card-header bg--primary  text-white">@lang('Select Ride Type')
                                         <button type="button" class="btn btn-sm btn-outline-light float-right addUserData"><i class="la la-fw la-plus"></i>@lang('Add New One')
                                         </button>
                                     </h5>
