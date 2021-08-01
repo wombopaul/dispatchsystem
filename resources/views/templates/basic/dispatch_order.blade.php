@@ -59,7 +59,7 @@
                                       </div>
                                        <div class="form-group">
                                           <label for="additional_message_label">Drop off Address</label>
-                                          <textarea name="additional_message" id="additional_message_label" class="form-control" style="height:100px;" onkeyup="getVals(this, 'additional_message');"></textarea>
+                                          <input type='text' name="additional_message" id="autocomplete" class="form-control" >
                                       </div>
                                      
                                   </div> 

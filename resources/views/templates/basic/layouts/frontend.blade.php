@@ -53,7 +53,9 @@
           </div>
         </div>
     </div> --}}
-   
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5l7mjh_T5UCviwCoPTeRaUT-5tF_C7sU&libraries=places&callback=initAutocomplete">
+</script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery3.1.1.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script>
@@ -73,9 +75,6 @@
     <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap4.0.0.min.js')}}"></script>
  
   
-
-
-
     @stack('script-lib')
     @stack('script')
     @include('partials.plugins')
@@ -196,7 +195,31 @@ $(function(){
             });
          });
   </script>   
+<script>
+	let autocomplete;
+	function initAutocomplete() {
+		autocomplete = new google.maps.places.Autocomplete(
+			document.getElementById('autocomplete'),
+			{
+				types: ['establishment'],
+				componentRestrictions: {'country':['Ng']},
+				fields: ['place_id','geometry','name']
+			});
+		autocomplete.addListener('place_changed', onPlaceChanged);
+	}
+	function onPlaceChanged(){
+		var place = autocomplete.getPlace();
 
+	if(!place.geometry) {
+		// User did not select a prediction: reset the input field
+	
+	document.getElementById('autocomplete').placeholder = 'Enter a place';
+	} else {
+		//Display details about the valid place
+		document.getElementById('details').innerHTML = place.name;
+		}
+	}
+</script>
 </body>
 
 </html>
