@@ -2576,18 +2576,27 @@ textarea.form--control {
 }
 
 .hero-section {
-    padding: 280px 0 150px;
+    padding: 80px 0 150px;
+}
+.hero-section2 {
+    padding: 0px 0 0px; height: 70px;
 }
 
 @media (max-width: 1199px) {
     .hero-section {
-        padding: 280px 0 120px;
+        padding: 80px 0 120px;
+    }
+     .hero-section2 {
+        padding: 5px 0 10px;
     }
 }
 
 @media (max-width: 767px) {
     .hero-section {
-        padding: 190px 0 110px;
+        padding: 90px 0 110px;
+    }
+    .hero-section2 {
+        padding: 9px 0 11px;
     }
 }
 

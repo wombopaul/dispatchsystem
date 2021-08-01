@@ -300,6 +300,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
 Route::get('/menu/{slug}/{id}', 'SiteController@footerMenu')->name('footer.menu');
 Route::get('/order/tracking', 'SiteController@orderTracking')->name('order.tracking');
+Route::get('/order/dispatch', 'SiteController@dispatchOrders')->name('order.dispatch');
 Route::get('/contact', 'SiteController@contact')->name('contact');
 Route::post('/contact', 'SiteController@contactSubmit');
 Route::get('/change/{lang?}', 'SiteController@changeLanguage')->name('lang');
