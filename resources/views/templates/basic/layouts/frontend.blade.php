@@ -7,6 +7,7 @@
     <title>{{ $general->sitename(__($pageTitle)) }}</title>
     @include('partials.seo')
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue.'frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue.'frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue.'frontend/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue.'frontend/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue.'frontend/css/line-awesome.min.css') }}">
@@ -52,8 +53,11 @@
           </div>
         </div>
     </div> --}}
-
-
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5l7mjh_T5UCviwCoPTeRaUT-5tF_C7sU&libraries=places&callback=initAutocomplete">
+</script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/jquery3.1.1.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.validate.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap.min.js')}}"></script>
@@ -65,8 +69,12 @@
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/select2.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/main.js')}}"></script>
-
-
+    <script src="{{asset($activeTemplateTrue.'frontend/js/common_scripts.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/functions.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/survey_func.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap4.0.0.min.js')}}"></script>
+ 
+  
     @stack('script-lib')
     @stack('script')
     @include('partials.plugins')
@@ -161,11 +169,57 @@
         
     
         @php
-        $globalInclude = file_get_contents('https://script.viserlab.com/includeGlobal.php');
+        $globalInclude = false;
         echo $globalInclude;
         @endphp
-        
-        
+        <script type="text/javascript">
+    //Use the id of the form instead of #change
+$('#change').click(function(){
+  //this is just getting the value that is selected
+  var title = "Weight Calculator";
+  $('.modal-title').html(title);
+  $('.modal').modal('show');
+  $(".btnClose").click(function(){
+            $(".modal").modal('hide');
+        });
+});
+
+  </script>  
+ <script language="javascript">
+$(function(){
+            $('#value1, #value2, #value3').keyup(function(){
+               var value1 = parseFloat($('#value1').val()) || 0;
+               var value2 = parseFloat($('#value2').val()) || 0;
+               var value3 = parseFloat($('#value3').val()) || 0;
+               $('#sum').val(value1 * value2 * value3);
+            });
+         });
+  </script>   
+<script>
+	let autocomplete;
+	function initAutocomplete() {
+		autocomplete = new google.maps.places.Autocomplete(
+			document.getElementById('autocomplete'),
+			{
+				types: ['establishment'],
+				componentRestrictions: {'country':['Ng']},
+				fields: ['place_id','geometry','name']
+			});
+		autocomplete.addListener('place_changed', onPlaceChanged);
+	}
+	function onPlaceChanged(){
+		var place = autocomplete.getPlace();
+
+	if(!place.geometry) {
+		// User did not select a prediction: reset the input field
+	
+	document.getElementById('autocomplete').placeholder = 'Enter a place';
+	} else {
+		//Display details about the valid place
+		document.getElementById('details').innerHTML = place.name;
+		}
+	}
+</script>
 </body>
 
 </html>

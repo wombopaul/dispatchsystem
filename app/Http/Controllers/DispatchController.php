@@ -103,6 +103,7 @@ class DispatchController extends Controller
         $code = '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG($courierInfo->code, 'C128') . '" alt="barcode"   />' . "<br>" . $courierInfo->code;
         return view('dispatch.invoice', compact('pageTitle', 'courierInfo', 'courierProductInfos', 'courierPayment', 'code'));
     }
+  
 
     public function searchPhoneNumber($mobile){
     

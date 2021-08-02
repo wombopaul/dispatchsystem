@@ -824,9 +824,18 @@ textarea.form--control {
     z-index: 9;
 }
 .hero-section {
-    padding: 280px 0 150px;
+    padding: 80px 0 150px;
     @include breakpoint(max-xl) {
-        padding: 280px 0 120px;
+        padding: 80px 0 120px;
+    }
+    @include breakpoint(max-md) {
+        padding: 190px 0 110px;
+    }
+}
+.hero-section2 {
+    padding: 0px 0 0px;
+    @include breakpoint(max-xl) {
+        padding: 0px 0 0px;
     }
     @include breakpoint(max-md) {
         padding: 190px 0 110px;

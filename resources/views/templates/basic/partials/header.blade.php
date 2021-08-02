@@ -1,7 +1,7 @@
 @php
     $footer = getContent('footer.content', true);
 @endphp
-<header>
+<header style="position:relative; background-color:#34436A">
     <div class="header-top d-none d-md-block">
         <div class="container">
             <div class="header-top-wrapper">
@@ -21,7 +21,7 @@
                 </select>
                  <!------------------  Tracking Menu -------------------->
                 <div class="right-area d-none d-md-block">
-                    <a href="{{ route('order.new') }}" class="cmn--btn btn--sm mr-3" target="_blank" >@lang('Book a Delivery')</a>
+                    <a href="{{ route('order.dispatch') }}" class="cmn--btn btn--sm mr-3" target="_blank" >@lang('Book a Delivery')</a>
                 </div>
                 <!------------------  Order Menu  -------------------->
                 <div class="right-area d-none d-md-block">
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="header-bottom">
+    <div class="header-bottom"style="width:100%; background:#34436A ">
         <div class="container">
             <div class="header__wrapper">
                 <div class="logo">

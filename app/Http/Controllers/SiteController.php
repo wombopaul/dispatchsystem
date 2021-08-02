@@ -152,6 +152,13 @@ class SiteController extends Controller
         return view($this->activeTemplate . 'order_tracking', compact('pageTitle', 'orderNumber'));
     }
 
+    public function dispatchOrders(Request $request)
+    {
+        $pageTitle = "Dispatch Order";
+       
+        return view($this->activeTemplate . 'dispatch_order', compact('pageTitle', 'pageTitle'));
+    }
+
     public function cookieAccept(){
         session()->put('cookie_accepted',true);
         $notify[] = ['success','Cookie accepted successfully'];
