@@ -54,11 +54,13 @@
                     var duration_value = duration.value;
                     $('#in_mile').text(distance_in_mile.toFixed(2));
                     $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                    $('#duration_cost').text(costOfTrip);
+                    $('#duration_cost').val(costOfTrip);
                     $('#duration_text').text(duration_text);
                     $('#duration_value').text(duration_value);
                     $('#from').text(origin);
                     $('#to').text(destination);
+                    $('#duration_cost2').text(costOfTrip);
+                    
                 }
             }
         }

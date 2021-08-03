@@ -25,7 +25,7 @@
                               <!-- Leave for security protection, read docs for details -->
                               <div id="middle-wizard">
                                  <!-- /step 1-->
-                                   <div class="step">
+                                    <div class="step">
                                   
                                       <h3 class="main_question" style="font-size:2.5em">Lets get your Request</h3>
                                       <div class="form-group">
@@ -69,9 +69,9 @@
                                           <input id="destination" type="hidden" name="destination" required/>
                                       </div>
                                       
-                                  </div> 
+                                  </div>  
                             <!----row------------------------------------------------------------------->
-                                  <div class="step">
+                                   <div class="step">
                                       <div class="review_block" id="result">
                                           <ul >
                                             <li>
@@ -83,7 +83,9 @@
                                                         <label style="color:Yellow">Estimated  Duration without Traffic: <span id="duration_text"></span>
                                                      <div class='row'>
                                                          <div class='col-lg-2'><h2 style="color:Yellow">₦</h2></div>
-                                                         <div class='col-lg-6'><h2 style="color:Yellow" id="duration_cost"></h2></div>
+                                                         <div class='col-lg-6'><h2 style="color:Yellow" id="duration_cost2"></h2>
+                                                         <input type='hidden' id="duration_cost">
+                                                        </div>
                                                      
                                                     </div>
                                                   </div>
@@ -100,7 +102,7 @@
                                           </ul>
                                           <small><em>Price is calculated by the weight of your cargo and distance entered *</em></small>
                                       </div>
-                                  </div> 
+                                  </div>  
                                   <!-- /step 3-->
                                   
                                   <!-- /step 2-->
@@ -111,15 +113,15 @@
                                         <ul class="clearfix">
                                            <li>
                                                   <div class="container_smile">
-                                                  <button class="btn btn-primary btn-block" type="submit">Make Payment</button>
-                                                      <input type="submit" ty id="good_1" for="good_1" name="question_1" class="radio checkButton" value="Pay Online" >
+                                                 
+                                                      <input type="submit" ty id="payOnline" for="good_1" name="question_1" class="radio checkButton" value="Pay Online" >
                                                       
                                                   </div>
                                               </li>
                                         
                                               <li>
                                                   <div class="container_smile">
-                                                  <input type="button" id="good_1" for="good_1" name="question_1" class="radio checkButton" value="Pay Cash" >
+                                                  <input type="button" id="cash" for="good_1" name="question_1" class="radio checkButton" value="Pay Cash" >
                                                     
                                                   </div>
                                               </li>

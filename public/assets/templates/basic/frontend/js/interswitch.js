@@ -13,14 +13,16 @@
   var merchantCode = 'MX34111';
   var payItemId = 'Default_Payable_MX34111';
   var transRef = randomReference();
-  var amount = document.getElementById("duration_cost").value;
+ 
+  var test = document.getElementById("duration_cost").value;
+  console.log(test)
   var mode = 'TEST';
   var redirectUrl = location.href;
   var paymentRequest = {
     merchant_code: merchantCode,
     pay_item_id: payItemId,
     txn_ref: transRef,
-    amount: amount,
+    amount: test,
     currency: 566,
     site_redirect_url: redirectUrl,
     onComplete: paymentCallback,
