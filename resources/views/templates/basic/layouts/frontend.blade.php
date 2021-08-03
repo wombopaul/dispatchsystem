@@ -53,9 +53,13 @@
           </div>
         </div>
     </div> --}}
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5l7mjh_T5UCviwCoPTeRaUT-5tF_C7sU&libraries=places&callback=initAutocomplete">
-</script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyA5l7mjh_T5UCviwCoPTeRaUT-5tF_C7sU"  type="text/javascript"></script>
+    <script type="text/javascript" src="https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/autoMatrix.js')}}"></script> 
+    <script src="{{asset($activeTemplateTrue.'frontend/js/interswitch.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery3.1.1.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script>
@@ -73,7 +77,7 @@
     <script src="{{asset($activeTemplateTrue.'frontend/js/functions.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/survey_func.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap4.0.0.min.js')}}"></script>
- 
+    
   
     @stack('script-lib')
     @stack('script')
@@ -195,31 +199,7 @@ $(function(){
             });
          });
   </script>   
-<script>
-	let autocomplete;
-	function initAutocomplete() {
-		autocomplete = new google.maps.places.Autocomplete(
-			document.getElementById('autocomplete'),
-			{
-				types: ['establishment'],
-				componentRestrictions: {'country':['Ng']},
-				fields: ['place_id','geometry','name']
-			});
-		autocomplete.addListener('place_changed', onPlaceChanged);
-	}
-	function onPlaceChanged(){
-		var place = autocomplete.getPlace();
 
-	if(!place.geometry) {
-		// User did not select a prediction: reset the input field
-	
-	document.getElementById('autocomplete').placeholder = 'Enter a place';
-	} else {
-		//Display details about the valid place
-		document.getElementById('details').innerHTML = place.name;
-		}
-	}
-</script>
 </body>
 
 </html>

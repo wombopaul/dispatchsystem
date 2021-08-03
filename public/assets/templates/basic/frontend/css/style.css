@@ -24,3 +24,50 @@ html *{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body
     
     width: 80%;
 }
+.checkButton {
+	width: 220px;
+	height: 64px;
+	color: white;
+	border-radius: 10px;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 5px;
+	border: 2px solid white;
+}
+.checkButton:hover {
+	width: 220px;
+	height: 64px;
+	color: white;
+	border-radius: 10px;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 5px;
+	border: 2px solid white;
+	background-color: green;
+	background-color: $cyan
+  &:hover
+    box-shadow: 0px 0px 0px 2.5px white inset, 0px 0px 0px 5px $cyan
+}
+@media screen and (max-width: 700px){
+	.checkButton, header p {
+		
+	height: auto;
+	color: white;
+	border-radius: 10px;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 5px;
+	border: 2px solid white;
+	}
+
+	 .top-nav  {
+    float: none;
+    width: 100%;
+	}
+
+	article section li  {
+	display:none;
+
+	}
+
+}
