@@ -172,30 +172,30 @@
         $globalInclude = false;
         echo $globalInclude;
         @endphp
-        <script type="text/javascript">
-    //Use the id of the form instead of #change
-$('#change').click(function(){
-  //this is just getting the value that is selected
-  var title = "Weight Calculator";
-  $('.modal-title').html(title);
-  $('.modal').modal('show');
-  $(".btnClose").click(function(){
-            $(".modal").modal('hide');
-        });
-});
-
-  </script>  
- <script language="javascript">
-$(function(){
-            $('#value1, #value2, #value3').keyup(function(){
-               var value1 = parseFloat($('#value1').val()) || 0;
-               var value2 = parseFloat($('#value2').val()) || 0;
-               var value3 = parseFloat($('#value3').val()) || 0;
-               $('#sum').val(value1 * value2 * value3);
+    <script type="text/javascript">
+            //Use the id of the form instead of #change
+        $('#change').click(function(){
+        //this is just getting the value that is selected
+        var title = "Weight Calculator";
+        $('.modal-title').html(title);
+        $('.modal').modal('show');
+        $(".btnClose").click(function(){
+                $(".modal").modal('hide');
             });
-         });
-  </script>   
+        });
+
+ 
+        $(function(){
+            $('#value1, #value2, #value3').keyup(function(){
+            var value1 = parseFloat($('#value1').val()) || 0;
+            var value2 = parseFloat($('#value2').val()) || 0;
+            var value3 = parseFloat($('#value3').val()) || 0;
+            $('#sum').val(value1 * value2 * value3);
+            });
+        });
+    </script>   
 <script>
+    google.maps.event.addDomListener(window, 'load', initAutocomplete);
 	let autocomplete;
 	function initAutocomplete() {
 		autocomplete = new google.maps.places.Autocomplete(
@@ -216,7 +216,9 @@ $(function(){
 	document.getElementById('autocomplete').placeholder = 'Enter a place';
 	} else {
 		//Display details about the valid place
-		document.getElementById('details').innerHTML = place.name;
+            if($("#details").length){           
+                document.getElementById('details').innerHTML = place.name;        
+            }
 		}
 	}
 </script>
