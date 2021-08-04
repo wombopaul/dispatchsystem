@@ -50,8 +50,8 @@
                             <span class="badge badge--danger">@lang('Due')</span>
                          @endif
                     <br>
-                    <b>@lang('Sender At Branch'):</b> {{__($courierInfo->senderBranch->name)}}<br>
-                    <b>@lang('Received At Branch'):</b> {{__($courierInfo->receiverBranch->name)}}
+                    {{-- <b>@lang('Sender At Branch'):</b> {{__($courierInfo->senderBranch->name)}}<br>
+                    <b>@lang('Received At Branch'):</b> {{__($courierInfo->receiverBranch->name)}} --}}
                 </div>
             </div>
 
@@ -62,9 +62,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>@lang('Courier Type')</th>
+                                {{-- <th>@lang('Courier Type')</th> --}}
                                 <th>@lang('Sending Date')</th>
-                                <th>@lang('Qty')</th>
+                                <th>@lang('Weight')</th>
                                 <th>@lang('Subtotal')</th>
                             </tr>
                         </thead>
@@ -72,9 +72,9 @@
                             @foreach($courierProductInfos as $courierProductInfo)
                             <tr>
                                 <td data-label="#">{{$loop->iteration}}</td>
-                                <td data-label="Courier Type">{{__($courierProductInfo->type->name)}}</td>
+                                {{-- <td data-label="Courier Type">{{__($courierProductInfo->type->name)}}</td> --}}
                                 <td data-label="Sending Date">{{showDateTime($courierProductInfo->created_at, 'd M Y')}}</td>
-                                <td data-label="Qty">{{$courierProductInfo->qty}}</td>
+                                <td data-label="Weight">{{$courierProductInfo->qty}} <span> kg</span></td>
                                 <td data-label="Subtotal">{{$general->cur_sym}}{{getAmount($courierProductInfo->fee)}}</td>
                             </tr>
                           @endforeach

@@ -54,10 +54,10 @@
           data: dataToSend,
           success: function (data) {
               if (data.status) {
-                alert('load invoice');
+                window.location.replace(data.url);
               }
               else {
-                alert('error');
+                alert('Order not successful');
               }
           }
       });

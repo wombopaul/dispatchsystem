@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\AdminNotification;
+use Carbon\Carbon;
+use App\Models\Page;
+use App\Models\Type;
 use App\Models\Frontend;
 use App\Models\Language;
-use App\Models\Page;
-use App\Models\SupportAttachment;
-use App\Models\SupportMessage;
-use App\Models\SupportTicket;
 use App\Models\CourierInfo;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\SupportTicket;
+use App\Models\CourierPayment;
+use App\Models\CourierProduct;
+use App\Models\SupportMessage;
+use App\Models\AdminNotification;
+use App\Models\SupportAttachment;
 
 
 class SiteController extends Controller
@@ -203,7 +206,6 @@ class SiteController extends Controller
             'sender_phone' => 'required|string|max:40',
             'sender_address' => 'required|max:255', 
             'receiver_name' => 'required|max:40',
-            'receiver_email' => 'required|email|max:40',
             'receiver_phone' => 'required|string|max:40',
             'receiver_address' => 'required|max:255',
         ]);
@@ -229,11 +231,11 @@ class SiteController extends Controller
 
         $totalAmount = 0;
         //for ($i=0; $i <count($request->courierName); $i++) { 
-            $courierType = Type::where('id',$request->courierName[$i])->where('status', 1)->firstOrFail();
-            $totalAmount += $request->quantity[$i] * $courierType->price;
+            //$courierType = Type::where('id',$request->courierName[$i])->where('status', 1)->firstOrFail();
+            //$totalAmount += $request->quantity[$i] * $courierType->price;
             $courierProduct = new CourierProduct();
             $courierProduct->courier_info_id = $courier->id;
-            $courierProduct->courier_type_id = $courierType->id;
+            //$courierProduct->courier_type_id = $courierType->id;
             $courierProduct->qty = $request->weight;
             $courierProduct->fee = $request->amount;
             $courierProduct->save();
@@ -258,6 +260,10 @@ class SiteController extends Controller
         $adminNotification->save();
 
         $notify[]=['success','Courier created successfully'];
-        return redirect()->route('dispatch.invoice', encrypt($courier->id))->withNotify($notify);
+        //return redirect()->route('dispatch.invoice', encrypt($courier->id))->withNotify($notify);
+        return response([
+            'url' => route('dispatch.invoice', encrypt($courier->id)),
+            'status' => true
+        ]);
     }
 }
