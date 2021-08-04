@@ -22,6 +22,11 @@
     <link href="{{ asset($activeTemplateTrue . 'frontend/css/color.php') }}?color={{$general->base_color}}" rel="stylesheet"/>
     @stack('style-lib')
     @stack('style')
+    <style>
+        .rotate-x{
+                background-color: green !important;
+            }
+        </style>
 </head>
 
 <body>
@@ -53,9 +58,11 @@
           </div>
         </div>
     </div> --}}
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5l7mjh_T5UCviwCoPTeRaUT-5tF_C7sU&libraries=places&callback=initAutocomplete">
-</script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyA5l7mjh_T5UCviwCoPTeRaUT-5tF_C7sU"  type="text/javascript"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/autoMatrix.js')}}"></script> 
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery3.1.1.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script>
@@ -73,7 +80,8 @@
     <script src="{{asset($activeTemplateTrue.'frontend/js/functions.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/survey_func.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap4.0.0.min.js')}}"></script>
- 
+    <script src="{{asset($activeTemplateTrue.'frontend/js/interswitch.js')}}"></script>
+    <script type="text/javascript" src="https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js"></script>
   
     @stack('script-lib')
     @stack('script')
@@ -192,36 +200,9 @@
             var value3 = parseFloat($('#value3').val()) || 0;
             $('#sum').val(value1 * value2 * value3);
             });
-        });
-    </script>   
-<script>
-    google.maps.event.addDomListener(window, 'load', initAutocomplete);
-	let autocomplete;
-	function initAutocomplete() {
-		autocomplete = new google.maps.places.Autocomplete(
-			document.getElementById('autocomplete'),
-			{
-				types: ['establishment'],
-				componentRestrictions: {'country':['Ng']},
-				fields: ['place_id','geometry','name']
-			});
-		autocomplete.addListener('place_changed', onPlaceChanged);
-	}
-	function onPlaceChanged(){
-		var place = autocomplete.getPlace();
+         });
+  </script>   
 
-	if(!place.geometry) {
-		// User did not select a prediction: reset the input field
-	
-	document.getElementById('autocomplete').placeholder = 'Enter a place';
-	} else {
-		//Display details about the valid place
-            if($("#details").length){           
-                document.getElementById('details').innerHTML = place.name;        
-            }
-		}
-	}
-</script>
 </body>
 
 </html>

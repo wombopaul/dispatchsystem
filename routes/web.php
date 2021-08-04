@@ -311,5 +311,6 @@ Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name(
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');
 Route::get('/order/new', 'DispatchController@newDispatchOrder')->name('order.new');
-Route::post('dispatch/store', 'DispatchController@store')->name('dispatch.order.store');
+Route::post('dispatch/store', 'DispatchController@storeOnline')->name('dispatch.order.store');
+
 Route::get('dispatch/invoice/{id}', 'DispatchController@invoice')->name('dispatch.invoice');
