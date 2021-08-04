@@ -39,25 +39,26 @@ define("API_KEY", "AIzaSyCkdyai5-p_kXTroX-gSz_mz-xeQ8Ht1iY");
             </div>
             <div class="col-sm-6">
                 <h2 style="text-align:center">
-                    <img src="logo.png" width="90px" height="90px;">
-                    <b>GNEXT TECH LOGISTIC</b>
+                    <img src="{{asset('assets/admin/images/logo.png')}}" width="90px" height="90px;">
+                    <b>GNEXT LOGISTIC</b>
                 <h2>
                 </div>
             <div class="col-sm-12 mt-3" style=" text-align: center;">
                 <h2>Client Tracking Terminal</h2>
                     <div class="lbl-locations">Tracking  Mode</div> 
-                    <div class="lbl-locations"><input type="radio" name="travel_mode" class="travel_mode" value="DRIVING" checked> DRIVING
+                    <div class="lbl-locations">
+                        {{-- <input type="radio" name="travel_mode" class="travel_mode" value="DRIVING" checked> DRIVING --}}
                         <div class="locations-option"></div> 
                         <input type="hidden" name="travel_mode" class="travel_mode" value="WALKING"> 
                         
-                        <input type="hidden" id="origin" name="way_start" class="way_points" placeholder="Start from" value=" Kubwa Train Station, Abuja, Abuja, Nigeria"> 
-                        <input type="hidden" id="destination" name="way_end" class="way_points" placeholder="Destination" value="Gwarinpa General Hospital, Abuja, Nigeria">
+                        <input type="hidden" id="origin" name="way_start" class="way_points" placeholder="Start from" value=" {{ $courierInfo->sender_address }}"> 
+                        <input type="hidden" id="destination" name="way_end" class="way_points" placeholder="Destination" value="{{ $courierInfo->receiver_address }}">
                         <div class="lbl-locations">
                             <h4>Pickup Location:</h4>
-                            <label>Kubwa Train Station, Abuja, Abuja, Nigeria</label></div>
+                            <label>{{ $courierInfo->sender_address }}</label></div>
                         <div class="lbl-locations">
                             <h4>Drop off Location:</h4>
-                             <label>Gwarinpa General Hospital, Abuja, Nigeriagfhghfghfgifhgifghifhfih</label>
+                             <label>{{ $courierInfo->receiver_address }}</label>
                          </div>  
                 </div>
                

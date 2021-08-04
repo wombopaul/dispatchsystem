@@ -198,6 +198,20 @@ class CourierController extends Controller
         return back()->withNotify($notify);
     }
 
+    public function accept(Request $request)
+    {
+        $request->validate([
+            'code' => 'required|exists:courier_infos,code'
+        ]);
+        $user = Auth::user();
+        $courier = CourierInfo::where('code', $request->code)->where('status', 0)->firstOrFail();
+        $courier->sender_staff_id = $user->id;
+        $courier->save();
+
+        $notify[] =  ['success', 'Accepted'];
+        return back()->withNotify($notify);
+    }
+
     public function deliveryStore(Request $request)
     {
         $request->validate([

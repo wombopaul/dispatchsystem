@@ -69,14 +69,19 @@
                                     </td>
                                 
                                     <td data-label="@lang('Action')">
-                                        @if($courierInfo->status  == 0 && $courierInfo->paymentInfo->status == 1)
-                                            <a href="javascript:void(0)" title="" class="icon-btn btn--info ml-1 delivery" data-code="{{$courierInfo->code}}">@lang('Delivery')</a>
+                                        @if($courierInfo->sender_staff_id != null)
+                                            @if($courierInfo->status  == 0 && $courierInfo->paymentInfo->status == 1)
+                                                <a href="javascript:void(0)" title="" class="icon-btn btn--info ml-1 delivery" data-code="{{$courierInfo->code}}">@lang('Delivery')</a>
+                                            @endif
+                                            @if($courierInfo->status  == 0 && $courierInfo->paymentInfo->status == 0)
+                                                <a href="javascript:void(0)" title="" class="icon-btn btn--success ml-1 payment" data-code="{{$courierInfo->code}}">@lang('Payment')</a>
+                                            @endif
+                                            <a href="{{route('staff.courier.invoice', encrypt($courierInfo->id))}}" class="icon-btn bg--10 ml-1">@lang('Invoice')</a>
+                                            <a href="{{route('staff.courier.details', encrypt($courierInfo->id))}}" class="icon-btn btn--priamry ml-1">@lang('Details')</a>
+                                            <a href="{{ route('order.gpstracking', encrypt($courierInfo->id)) }}" class="icon-btn btn--info ml-1" target="_blank">@lang('Track')</a>
+                                        @else
+                                        <a href="javascript:void(0)" title="" class="icon-btn btn--success ml-1 accept-order" data-code="{{$courierInfo->code}}">@lang('Accept')</a>
                                         @endif
-                                        @if($courierInfo->status  == 0 && $courierInfo->paymentInfo->status == 0)
-                                            <a href="javascript:void(0)" title="" class="icon-btn btn--success ml-1 payment" data-code="{{$courierInfo->code}}">@lang('Payment')</a>
-                                        @endif
-                                       <a href="{{route('staff.courier.invoice', encrypt($courierInfo->id))}}" class="icon-btn bg--10 ml-1">@lang('Invoice')</a>
-                                       <a href="{{route('staff.courier.details', encrypt($courierInfo->id))}}" class="icon-btn btn--priamry ml-1">@lang('Details')</a>
                                     </td>
                                 </tr>
                             @empty
@@ -114,6 +119,32 @@
                 <input type="hidden" name="code">
                 <div class="modal-body">
                     <p>@lang('Are you sure to collect this amount?')</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
+                    <button type="submit" class="btn btn--success">@lang('Yes')</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AcceptOrder" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="" lass="modal-title" id="ModalLabel">@lang('Accept')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            
+            <form action="{{route('staff.courier.accept')}}" method="POST">
+                @csrf
+                @method('POST')
+                <input type="hidden" name="code">
+                <div class="modal-body">
+                    <p>@lang('Are you sure to accept this order?')</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
@@ -162,9 +193,15 @@
         modal.find('input[name=code]').val($(this).data('code'))
         modal.modal('show');
     });
-
+    
     $('.delivery').on('click', function () {
         var modal = $('#deliveryBy');
+        modal.find('input[name=code]').val($(this).data('code'))
+        modal.modal('show');
+    });
+
+    $('.accept-order').on('click', function () {
+        var modal = $('#AcceptOrder');
         modal.find('input[name=code]').val($(this).data('code'))
         modal.modal('show');
     });

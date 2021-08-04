@@ -274,7 +274,8 @@ Route::namespace('Staff')->name('staff.')->prefix('staff')->group(function () {
                 Route::get('courier/delivery/list', 'CourierController@delivery')->name('delivery.list');                
                 Route::get('courier/online/list', 'CourierController@onlinedelivery')->name('online.delivery.list');
                 Route::get('courier/details/{id}', 'CourierController@details')->name('courier.details');
-                Route::post('courier/payment', 'CourierController@payment')->name('courier.payment');
+                Route::post('courier/payment', 'CourierController@payment')->name('courier.payment');                
+                Route::post('courier/accept', 'CourierController@accept')->name('courier.accept');
                 Route::post('courier/delivery/store', 'CourierController@deliveryStore')->name('courier.delivery');
                 Route::get('courier/cash/collection', 'CourierController@cash')->name('cash.income');
                 Route::get('courier/list', 'CourierController@manageCourierList')->name('courier.list');
@@ -312,5 +313,5 @@ Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');
 Route::get('/order/new', 'DispatchController@newDispatchOrder')->name('order.new');
 Route::post('dispatch/store', 'SiteController@storeOnline')->name('dispatch.order.store');
-Route::get('/order/gpstracking', 'TrackingControler@clientTracking')->name('order.gpstracking');
+Route::get('order/gpstracking/{id}', 'TrackingControler@clientTracking')->name('order.gpstracking');
 Route::get('dispatch/invoice/{id}', 'DispatchController@invoice')->name('dispatch.invoice');

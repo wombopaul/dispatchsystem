@@ -27,9 +27,10 @@ class TrackingControler extends Controller
      */
    
   
-    public function clientTracking(){
-       
-        return view("clientTrack");
+    public function clientTracking($id){
+        $pageTitle = "Courier Details";
+        $courierInfo = CourierInfo::findOrFail(decrypt($id));
+        return view("clientTrack", compact('pageTitle', 'courierInfo'));
     }
 
     

@@ -88,8 +88,7 @@
                                           <input type='text' name="additional_message" id="from_places" class="form-control" placeholder="Enter pickup location">
                                           <input id="origin" type="hidden" name="sender_address" required/>
                                       </div>
-                                       <div class="form-group">
-                                         
+                                       <div class="form-group">                                         
                                           <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
                                           <input id="destination" type="hidden" name="receiver_address" required/>
                                       </div>

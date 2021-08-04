@@ -45,10 +45,10 @@
                         <span class="amount">{{$branchCount}}</span>
                     </div>
                     <div class="desciption">
-                        <span>@lang('Total Brach')</span>
+                        <span>@lang('New Online Order')</span>
                     </div>
 
-                    <a href="{{route('staff.branch.index')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
+                    <a href="{{route('staff.online.delivery.list')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                 </div>
             </div>
         </div>
