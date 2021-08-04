@@ -54,6 +54,10 @@ class SiteController extends Controller
         dd("here");
         return view("dispatch.patials.new_dispatch_order");
     }
+    public function clientTracking(){
+        dd("here");
+        return view("dispatch.patials.new_dispatch_order");
+    }
 
     public function contact()
     {
