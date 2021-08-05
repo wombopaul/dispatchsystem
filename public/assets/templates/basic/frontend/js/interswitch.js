@@ -43,6 +43,8 @@
           mode:mode
         };
         window.webpayCheckout(paymentRequest);
+
+        
     }
     
     if(payment_method == "Pay On Delivery"){
@@ -77,25 +79,41 @@ function paymentCallback(response) {
 
              if (successResponce = successPass) {
 
-              paymentCode = document.getElementsByName('PaymentCode')[0].value,
-              customerEmail = document.getElementsByName('emailAdress')[0].value,
-              customerMobile = document.getElementsByName('phoneNumber')[0].value,
-              TransactionAmt = document.getElementsByName('TransactionAmt')[0].value,
-              
-             
-     myJsonString = [paymentCode,customerEmail,customerMobile,TransactionAmt,successResponce,tref];
-    myJsonString1 = JSON.stringify(myJsonString);
-    var xmlhttp = new XMLHttpRequest(response);
-        xmlhttp.onreadystatechange = respond;
-        xmlhttp.open("POST", "../hashindex/ajax-test.php", true);
-        xmlhttp.send(myJsonString1);
-    function respond() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById('result').innerHTML = xmlhttp.responseText;
-        }
-    }
- $("#hide").hide("fast",function(){
+                paymentCode = document.getElementsByName('PaymentCode')[0].value,
+                customerEmail = document.getElementsByName('emailAdress')[0].value,
+                customerMobile = document.getElementsByName('phoneNumber')[0].value,
+                TransactionAmt = document.getElementsByName('TransactionAmt')[0].value,
+                
+                      
+                myJsonString = [paymentCode,customerEmail,customerMobile,TransactionAmt,successResponce,tref];
+                myJsonString1 = JSON.stringify(myJsonString);
+                var xmlhttp = new XMLHttpRequest(response);
+                xmlhttp.onreadystatechange = respond;
+                xmlhttp.open("POST", "../hashindex/ajax-test.php", true);
+                xmlhttp.send(myJsonString1);
+                function respond() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        document.getElementById('result').innerHTML = xmlhttp.responseText;
+                    }
+                }
+                $("#hide").hide("fast",function(){
 
-                      })
-  } }
+                })
+  } 
+    // var url = $("#url").val();
+    //   var dataToSend = $("#wrapped").serialize();
+    //   $.ajax({
+    //       type: "POST",
+    //       url: url,
+    //       data: dataToSend,
+    //       success: function (data) {
+    //           if (data.status) {
+    //             window.location.replace(data.url);
+    //           }
+    //           else {
+    //             alert('Order not successful');
+    //           }
+    //       }
+    //   });
+}
 }
