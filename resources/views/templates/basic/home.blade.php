@@ -11,7 +11,7 @@
 	                    <h5 class="banner__subtitle">{{__($banner->data_values->heading)}}</h5>
 	                    <h1 class="banner__title">{{__($banner->data_values->sub_heading)}}</h1>
 	                    <div class="banner__btn__grp">
-	                        <a href="{{route('order.new')}}" class="cmn--btn">@lang('Book a Delivery')</a>
+	                        <a href="{{route('order.dispatch')}}" class="cmn--btn">@lang('Book a Delivery')</a>
 	                        <a href="{{route('order.tracking')}}" class="cmn--btn">@lang('Order Tracking')</a>
 	                    </div>
 	                </div>

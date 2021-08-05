@@ -55,7 +55,7 @@
                                 <option value="{{$item->code}}" @if(session('lang') == $item->code) selected  @endif>{{ __($item->name) }}</option>
                             @endforeach
                         </select>
-
+                        <a href="{{route('order.dispatch')}}" class="cmn--btn btn--sm mr-3">@lang('Book a Delivery')</a>
                         <a href="{{route('order.tracking')}}" class="cmn--btn btn--sm mr-3">@lang('Order Tracking')</a>
                         
                         <ul class="header-contact-info">
