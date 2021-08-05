@@ -3,7 +3,7 @@
     $footer_menu = getContent('footer.element', false);
     $socialIcons = getContent('social_icon.element');
 @endphp
-<footer class="footer-section bg--title-overlay bg_img bg_fixed" data-background="{{getImage('assets/images/frontend/footer/'. $footer->data_values->background_image, '1920x1080')}}">
+<footer class="footer-section bg--title-overlay bg_img bg_fixed" data-background="{{getImage('assets/images/frontend/footer/'. $footer->data_values->background_image, '1920x1080')}}" style="position:relative; background-color:#34436A">
     <div class="footer-top pt-120 pb-120 position-relative">
         <div class="container">
             <div class="row gy-5 justify-content-between">
