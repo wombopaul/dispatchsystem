@@ -1,4 +1,3 @@
-
 <?php
 define("API_KEY", "AIzaSyCkdyai5-p_kXTroX-gSz_mz-xeQ8Ht1iY");
 ?>
@@ -54,10 +53,17 @@ define("API_KEY", "AIzaSyCkdyai5-p_kXTroX-gSz_mz-xeQ8Ht1iY");
                         <input type="hidden" id="destination" name="way_end" class="way_points" placeholder="Destination" value="{{ $courierInfo->receiver_address }}">
                         <div class="lbl-locations">
                             <h4>Pickup Location:</h4>
+<<<<<<< HEAD
                             <label>Kubwa Train Station, Abuja, Abuja, Nigeria</label></div>
                         <div class="lbl-locations">
                             <h4>Drop off Location:</h4>
                              <label>Gwarinpa General Hospital, Abuja, Nigeria</label>
+=======
+                            <label>{!! $courierInfo->sender_address !!}</label></div>
+                        <div class="lbl-locations">
+                            <h4>Drop off Location:</h4>
+                             <label>{!! $courierInfo->receiver_address !!}</label>
+>>>>>>> f4ec47462cd588e65463f7943390c972d22541fe
                          </div>  
                 </div>
                
