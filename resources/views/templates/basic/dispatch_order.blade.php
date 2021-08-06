@@ -3,7 +3,7 @@
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb2')
  <div class="wrapper_centering style_2" style='position:relative;' style='margin-bottom:60px;' >
-      <div class="container_centering pb-60 ">
+      <div class="container_centering " style='padding-bottom:120px;'>
           <div class="container">
               <div class="row justify-content-between">
                   <div class="col-xl-6 col-lg-6 d-flex align-items-center">
