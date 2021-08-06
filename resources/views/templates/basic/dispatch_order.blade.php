@@ -91,8 +91,8 @@
                                        <div class="form-group">                                         
                                           <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
                                           <input id="destination" type="hidden" name="receiver_address" required/>
-                                      </div>
-                                      
+                                          <button type='button' class='btn btn-primary' style='width:90px; height:auto;padding:5px'font-size:15px;>+ Address</button>
+</div>
                                   </div>  
                             <!----row------------------------------------------------------------------->
                                    <div class="step">
