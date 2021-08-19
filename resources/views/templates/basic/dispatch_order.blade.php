@@ -35,9 +35,8 @@
                                             <input type="text" name="percel_note" id="percel_note" class="form-control required">
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-12">
-                                                <div class="form-group">
-                                                   
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="form-group">                                                   
                                                     <select  name="typedelivery" id="typedelivery" class="form-control" required>
                                                         <option>Select Type of Delivery</option>
                                                         <option>Express Delivery</option>
@@ -45,9 +44,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12 col-md-12 col-12">
-                                                <div class="form-group">
-                                                   
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="form-group">                                                   
                                                     <select type="text" name="categoryDelivery" id="categoryDelivery" class="form-control" required>
                                                         <option>Select Delivery Category</option>
                                                         <option>Percel less than 10Kg (Bike)</option>
@@ -83,8 +81,10 @@
                                   </div>  
                             <!----row------------------------------------------------------------------->
                             <div class="step">
-                            <h3 class="main_question" style="font-size:2.5em">Add Pickup Address(s)</h3>
-                            <div class="row">
+                                <h3 class="main_question" style="font-size:2.5em">Add Drop off Details</h3>
+                                <div class="row">
+                                    <div class="col-md-12" id="drop-off">
+                                        <div class="row">
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_name">Receiver full name</label>
@@ -97,14 +97,24 @@
                                                     <input type="tel" name="receiver_phone" id="receiver_phone" class="form-control">
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12 col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
+                                                    <input id="destination" type="hidden" name="receiver_address" required/>
+                                                </div>
+                                            </div>
                                         </div>
-                                     
-                                       <div class="form-group">                                         
-                                          <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
-                                          <input id="destination" type="hidden" name="receiver_address" required/>
-                                          <button type='button' class='btn btn-warning mt-2' style='width:90px; height:auto;padding:2px;font-size:0.9em;'>+ Address</button>
                                     </div>
-                                  </div>  
+                                    <div class="col-md-12">
+                                        <div class="form-group">                                         
+                                            {{-- <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
+                                            <input id="destination" type="hidden" name="receiver_address" required/> --}}
+                                            <button type='button' class='btn btn-warning mt-2' onclick="loadClonedForm('{{ route('loadpartial') }}', 'drop-off');"
+                                             style='width:90px; height:auto;padding:2px;font-size:0.9em;'>+ Address</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
                                   <!-- /step 3-->
                             <!------------------------------------------------------------------------->
                                    <div class="step">

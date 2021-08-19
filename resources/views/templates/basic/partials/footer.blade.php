@@ -4,7 +4,7 @@
     $socialIcons = getContent('social_icon.element');
 @endphp
 <footer class="footer-section bg--title-overlay bg_img bg_fixed" data-background="{{getImage('assets/images/frontend/footer/'. $footer->data_values->background_image, '1920x1080')}}" style="position:relative; background-color:#34436A">
-    <div class="footer-top pt-120 pb-120 position-relative">
+    {{-- <div class="footer-top pt-120 pb-120 position-relative">
         <div class="container">
             <div class="row gy-5 justify-content-between">
                 <div class="col-lg-3">
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="footer-bottom position-relative text-center">
         <div class="container">
             &copy; @lang('All Right Reserved by') <a href="{{route('home')}}">{{__($general->sitename)}}</a>

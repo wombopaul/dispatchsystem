@@ -1,3 +1,28 @@
+var formClonCount = 0;
+
+$(document).on('click', '.removeCloned', function () {
+    // if (formClonCount == 1) {
+    //     $(this).attr("disabled", true);
+    // } else {
+        var rClass = $(this).data('removediv');
+        $('#' + rClass).remove();
+        formClonCount -= 1;
+    // }
+});
+
+function loadClonedForm(actionUrl, divId) {
+    $.ajax({
+        type: "GET",
+        url: actionUrl,
+        processData: false,
+        contentType: false,
+        success: function (data) {
+            $('#' + divId).append(data);
+            formClonCount += 1;
+        }
+    });
+}
+ 
  $("#payOnline").click(function(){
     $("#cash").removeClass('rotate-x');
     $("#payment_method").val('Online Payment');

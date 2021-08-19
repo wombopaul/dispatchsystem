@@ -40,9 +40,9 @@
     @include($activeTemplate . 'partials.header')
     @yield('content')
     @include($activeTemplate . 'partials.footer')
-    @php
+    {{-- @php
         $cookie = App\Models\Frontend::where('data_keys','cookie.data')->first();
-    @endphp
+    @endphp --}}
 
 
 

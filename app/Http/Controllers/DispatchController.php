@@ -180,4 +180,8 @@ class DispatchController extends Controller
         $notify[]=['success','Courier created successfully'];
         return redirect()->route('dispatch.invoice', encrypt($courier->id))->withNotify($notify);
     }
+
+    public function loadpartial(){
+        return view('templates.basic._order-address');
+    }
 }

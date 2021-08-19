@@ -315,3 +315,5 @@ Route::get('/order/new', 'DispatchController@newDispatchOrder')->name('order.new
 Route::post('dispatch/store', 'SiteController@storeOnline')->name('dispatch.order.store');
 Route::get('order/gpstracking/{id}', 'TrackingControler@clientTracking')->name('order.gpstracking');
 Route::get('dispatch/invoice/{id}', 'DispatchController@invoice')->name('dispatch.invoice');
+Route::get('/loadpartial/new', 'DispatchController@loadpartial')->name('loadpartial');
+
