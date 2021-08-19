@@ -35,26 +35,27 @@
                                             <input type="text" name="percel_note" id="percel_note" class="form-control required">
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-5 col-md-5 col-5">
+                                            <div class="col-lg-12 col-md-12 col-12">
                                                 <div class="form-group">
-                                                    <label for="lastname">Enter the Weight (Kg)</label>
-                                                    <input type="number" name="weight" id="lastname" class="form-control required">
+                                                   
+                                                    <select  name="typedelivery" id="typedelivery" class="form-control" required>
+                                                        <option>Select Type of Delivery</option>
+                                                        <option>Express Delivery</option>
+                                                        <option>Reular Delivery</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-lg-12 col-md-12 col-12">
                                                 <div class="form-group">
-                                                    <label>I dont know the weight:</label>
+                                                   
+                                                    <select type="text" name="categoryDelivery" id="categoryDelivery" class="form-control" required>
+                                                        <option>Select Delivery Category</option>
+                                                        <option>Percel less than 10Kg (Bike)</option>
+                                                        <option>Percel greater than 10Kg (Car)</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary" id="change">Cal. Weight</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sender_email">Sender email</label>
-                                            <input type="email" name="sender_email" id="sender_email" class="form-control required ">
+                                            
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-6">
@@ -70,7 +71,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="form-group">
+                                            <label for="sender_email">Sender email</label>
+                                            <input type="email" name="sender_email" id="sender_email" class="form-control required ">
+                                        </div>
+                                        <div class="form-group">                                          
+                                          <input type='text' name="additional_message" id="from_places" class="form-control" placeholder="Enter pickup location">
+                                          <input id="origin" type="hidden" name="sender_address" />
+                                      </div>
+                                       
+                                  </div>  
+                            <!----row------------------------------------------------------------------->
+                            <div class="step">
+                            <h3 class="main_question" style="font-size:2.5em">Add Pickup Address(s)</h3>
+                            <div class="row">
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_name">Receiver full name</label>
@@ -84,17 +98,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                      <div class="form-group">                                          
-                                          <input type='text' name="additional_message" id="from_places" class="form-control" placeholder="Enter pickup location">
-                                          <input id="origin" type="hidden" name="sender_address" required/>
-                                      </div>
+                                     
                                        <div class="form-group">                                         
                                           <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
                                           <input id="destination" type="hidden" name="receiver_address" required/>
-                                          <button type='button' class='btn btn-success mt-2' style='width:90px; height:auto;padding:2px;font-size:0.9em;'>+ Address</button>
-</div>
+                                          <button type='button' class='btn btn-warning mt-2' style='width:90px; height:auto;padding:2px;font-size:0.9em;'>+ Address</button>
+                                    </div>
                                   </div>  
-                            <!----row------------------------------------------------------------------->
+                                  <!-- /step 3-->
+                            <!------------------------------------------------------------------------->
                                    <div class="step">
                                       <div class="review_block" id="result">
                                           <ul >
