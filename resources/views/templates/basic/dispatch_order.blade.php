@@ -26,9 +26,9 @@
                               <input type="hidden" name="url"  id="url" value="{{ route('dispatch.order.store') }}">
                               <!-- Leave for security protection, read docs for details -->
                               <div id="middle-wizard">
-                                 <!-- /step 1-->
+                                 <!-- /step 1--------------------------------------------------------------------->
                                     <div class="step">                                  
-                                        <h3 class="main_question" style="font-size:2.5em">Send us your request</h3>
+                                        <h3 class="main_question" style="font-size:2.5em">Lets get your Request</h3>
                                         <input type="hidden" name="sender_branch_id" value="4">
                                         <div class="form-group">
                                             <label for="percel_note">Enter your Percel description</label>
@@ -90,33 +90,34 @@
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_name">Receiver full name</label>
-                                                    <input type="text" name="receiver_name[]" id="receiver_name" class="form-control">
+                                                    <input type="text" name="addresses[receiver_name][]" id="receiver_name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_phone">Receiver phone number</label>
-                                                    <input type="tel" name="receiver_phone[]" id="receiver_phone" class="form-control">
+                                                    <input type="tel" name="addresses[receiver_phone][]" id="receiver_phone" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-12">
                                                 <div class="form-group">
                                                     <label for="to_places">Drop off address</label>
-                                                    <input type='text' name="receiver_address[]" id="to_places" class="form-control" required/>
-                                                    <input id="destination" type="hidden" name=""/>
+                                                    <input type='text' name="additional_message" id="to_places" class="form-control" required/>
+                                                    <input id="destination" type="hidden" name="receiver_address[]"/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">                                         
-                                          
+                                            {{-- <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
+                                            <input id="destination" type="hidden" name="receiver_address" required/> --}}
                                             <button type='button' class='btn btn-warning mt-2' onclick="loadClonedForm('{{ route('loadpartial') }}', 'drop-off');"
                                              style='width:90px; height:auto;padding:2px;font-size:0.9em;'>+ Address</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>    
                                   <!-- /step 3-->
                             <!------------------------------------------------------------------------->
                                    <div class="step">
@@ -124,11 +125,17 @@
                                           <ul >
                                             <li>
                                             <div class="checkbox_radio_container">
-                                            <h2 style="color:white">The Delivery will cost you: </h2>
-                                                  <h5> <label style="color:Yellow">Origin:</label> <span id="from" class="badge badge-primary badge-pill"></span><br>
-                                                  <label style="color:Yellow"> To:</label> <span id="to" class="badge badge-primary badge-pill"></span> 
-                                                  </h5>
-                                                        <label style="color:Yellow">Estimated  Duration without Traffic: <span id="duration_text"></span>
+                                                <div class="row">
+                                                    <div class='col-sm-12'><h2 style="color:white">The Delivery will cost you: </h2></div>
+                                                    <div class='col-sm-12'><h5> <label style="color:Yellow">Origin:</label> <span id="from" class="badge badge-primary badge-pill"></span></div>
+                                                    <div class='col-sm-12'> <label style="color:Yellow"> To:</label> 
+                                                    <p id="to" class="col-sm-12" style="with:auto;"></p> 
+                                                    </div>
+                                                    <div class='col-sm-12'><label style="color:Yellow">Estimated  Duration without Traffic: <span id="duration_text"></span></div>
+                                                    <div class='col-sm-6'></div>
+
+                                                </div>
+                                              
                                                      <div class='row'>
                                                          {{-- <div class='col-lg-2'><h2 style="color:Yellow">₦</h2></div> --}}
                                                          <div class='col-lg-6'><h2 style="color:Yellow" id="duration_cost2"></h2>
