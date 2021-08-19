@@ -14,8 +14,8 @@
     </div>
     <div class="col-lg-10 col-md-10 col-12">
         <div class="form-group">
-            <input type='text' name="addresses[receiver_address][]" id="to_places" class="form-control destination" placeholder="Enter  drop off location">
-            <input id="addresses[receiver_address][]" type="hidden" name="addresses[receiver_address][]" required/>
+            <input type='text' name="addresses[receiver_address][]" id="{{ 'to_' . $id }}" class="form-control destination" placeholder="Enter  drop off location">
+            <input id="{{ 'to_hidden_' . $id }}" type="hidden" name="addresses[receiver_address][]" required/>
         </div>
     </div>
     <div class="col-md-2 ml-0 mr-0  pl-0 pr-0">
@@ -25,3 +25,25 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function() {
+        var input = document.getElementById('to_' + '{{ $id }}');
+        var hiddenId = 'to_hidden_' + '{{ $id }}';
+        var to = new google.maps.places.Autocomplete(input);
+        
+        google.maps.event.addListener(to, 'place_changed', function () {
+            alert(hiddenId);
+            var to_formatted = to.getPlace().formatted_address;
+            alert(to_formatted);
+            
+            $('#' + hiddenId).val(to_formatted);
+        });
+
+        // google.maps.event.addListener(to, 'place_changed', function () {
+        //         var to_place = to.getPlace();
+        //         var to_address = to_place.formatted_address;
+        //         $('#destination').val(to_address);
+        // });
+    })
+</script>

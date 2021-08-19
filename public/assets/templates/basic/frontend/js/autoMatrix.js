@@ -3,6 +3,7 @@
         google.maps.event.addDomListener(window, 'load', function () {
             var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
             var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
+            
 
             google.maps.event.addListener(from_places, 'place_changed', function () {
                 var from_place = from_places.getPlace();
