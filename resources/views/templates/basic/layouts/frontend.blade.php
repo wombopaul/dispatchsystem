@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $general->sitename(__($pageTitle)) }}</title>
+    @laravelPWA
     @include('partials.seo')
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue.'frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue.'frontend/css/style.css') }}">

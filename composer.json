@@ -26,6 +26,7 @@
         "phpmailer/phpmailer": "^6.2",
         "razorpay/razorpay": "^2.5",
         "sendgrid/sendgrid": "^7.6",
+        "silviolleite/laravelpwa": "^2.0",
         "stripe/stripe-php": "^7.72",
         "textmagic/sdk": "dev-master",
         "twilio/sdk": "^6.23",
