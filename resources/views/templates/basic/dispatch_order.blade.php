@@ -127,8 +127,8 @@
                                             <div class="checkbox_radio_container">
                                                 <div class="row">
                                                     <div class='col-sm-12'><h2 style="color:white">The Delivery will cost you: </h2></div>
-                                                    <div class='col-sm-12'><h5> <label style="color:Yellow">Origin:</label> <span id="from" class="badge badge-primary badge-pill"></span></div>
-                                                    <div class='col-sm-12'> <label style="color:Yellow"> To:</label> 
+                                                    <div class='col-sm-12'><h4 style="color:Yellow">Origin:</h4> <span id="from" class="badge badge-primary badge-pill"></span></div>
+                                                    <div class='col-sm-12'> <h4 style="color:Yellow"> To:</h4> 
                                                     <p id="to" class="col-sm-12" style="with:auto;"></p> 
                                                     </div>
                                                     <div class='col-sm-12'><label style="color:Yellow">Estimated  Duration without Traffic: <span id="duration_text"></span></div>
