@@ -28,7 +28,7 @@
                               <div id="middle-wizard">
                                  <!-- /step 1-->
                                     <div class="step">                                  
-                                        <h3 class="main_question" style="font-size:2.5em">Lets get your Request</h3>
+                                        <h3 class="main_question" style="font-size:2.5em">Send us your request</h3>
                                         <input type="hidden" name="sender_branch_id" value="4">
                                         <div class="form-group">
                                             <label for="percel_note">Enter your Percel description</label>
@@ -90,28 +90,27 @@
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_name">Receiver full name</label>
-                                                    <input type="text" name="addresses[receiver_name][]" id="receiver_name" class="form-control">
+                                                    <input type="text" name="receiver_name[]" id="receiver_name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_phone">Receiver phone number</label>
-                                                    <input type="tel" name="addresses[receiver_phone][]" id="receiver_phone" class="form-control">
+                                                    <input type="tel" name="receiver_phone[]" id="receiver_phone" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-12">
                                                 <div class="form-group">
                                                     <label for="to_places">Drop off address</label>
-                                                    <input type='text' name="additional_message" id="to_places" class="form-control" required/>
-                                                    <input id="destination" type="hidden" name="receiver_address[]"/>
+                                                    <input type='text' name="receiver_address[]" id="to_places" class="form-control" required/>
+                                                    <input id="destination" type="hidden" name=""/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">                                         
-                                            {{-- <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
-                                            <input id="destination" type="hidden" name="receiver_address" required/> --}}
+                                          
                                             <button type='button' class='btn btn-warning mt-2' onclick="loadClonedForm('{{ route('loadpartial') }}', 'drop-off');"
                                              style='width:90px; height:auto;padding:2px;font-size:0.9em;'>+ Address</button>
                                         </div>

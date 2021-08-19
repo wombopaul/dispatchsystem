@@ -9,6 +9,7 @@ use App\Models\Language;
 use App\Models\CourierInfo;
 use Illuminate\Http\Request;
 use App\Models\SupportTicket;
+use App\Models\CourierAddress;
 use App\Models\CourierPayment;
 use App\Models\CourierProduct;
 use App\Models\SupportMessage;
@@ -203,17 +204,16 @@ class SiteController extends Controller
     public function storeOnline(Request $request)
     {
       
-        $request->validate([
-            //'branch' => 'required|exists:branches,id',
-            'sender_name' => 'required|max:40',
-            'sender_email' => 'required|email|max:40',
-            'sender_phone' => 'required|string|max:40',
-            'sender_address' => 'required|max:255', 
-            'receiver_name' => 'required|max:40',
-            'receiver_phone' => 'required|string|max:40',
-            'receiver_address' => 'required|max:255',
-        ]);
-      
+        // $request->validate([
+        //     //'branch' => 'required|exists:branches,id',
+        //     'sender_name' => 'required|max:40',
+        //     'sender_email' => 'required|email|max:40',
+        //     'sender_phone' => 'required|string|max:40',
+        //     'sender_address' => 'required|max:255', 
+        //     'receiver_name' => 'required|max:40',
+        //     'receiver_address' => 'required|max:255',
+        // ]);
+     
         //$sender = Auth::user();
         $courier = new CourierInfo();
         $courier->invoice_id = getTrx();
@@ -224,15 +224,27 @@ class SiteController extends Controller
         $courier->sender_email = $request->sender_email;
         $courier->sender_phone = $request->sender_phone;
         $courier->sender_address = $request->sender_address;
-        $courier->receiver_name = $request->receiver_name;
+        $courier->category_delivery = $request->categoryDelivery;
         $courier->receiver_email = $request->receiver_email;
-        $courier->receiver_phone = $request->receiver_phone;
-        $courier->receiver_address = $request->receiver_address;
+        $courier->type_delivery = $request->typedelivery;
+        //$courier->receiver_address = $request->receiver_address;
         $courier->receiver_branch_id = $request->branch;
         $courier->status = 0;
         $courier->is_online = 1;
         $courier->save();
+        
+        $addresses = $request->get('receiver_address');
+        $size = (count($addresses));
+        
+        for ($i = 0; $i < $size; $i++) {
+            $address = new CourierAddress();
 
+            $address->courier_id =  $courier->id;
+            $address->address = $request->get('receiver_address')[$i];
+            $address->full_name =  $request->get('receiver_name')[$i];
+            $address->phone_number =  $request->get('receiver_phone')[$i];
+            $address->save();
+        }
         $totalAmount = 0;
         //for ($i=0; $i <count($request->courierName); $i++) { 
             //$courierType = Type::where('id',$request->courierName[$i])->where('status', 1)->firstOrFail();
@@ -240,7 +252,7 @@ class SiteController extends Controller
             $courierProduct = new CourierProduct();
             $courierProduct->courier_info_id = $courier->id;
             //$courierProduct->courier_type_id = $courierType->id;
-            $courierProduct->qty = $request->weight;
+            //$courierProduct->qty = $request->weight;
             $courierProduct->fee = $request->amount;
             $courierProduct->save();
        // }
