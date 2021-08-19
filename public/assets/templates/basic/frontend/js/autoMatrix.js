@@ -65,34 +65,20 @@ function callback(response, status) {
                 duration += response.rows[0].elements[i].duration.value;
             }
             
-            // var distance = response.rows[0].elements[0].distance;
-            // var duration = response.rows[0].elements[0].duration;
-            //console.log(response.rows[0].elements[0].distance);
-            // var distance_in_kilo = distance.value / 1000; // the kilom
-            // var distance_in_mile = distance.value / 1609.34; // the mile
-
             var typedelivery = $('#typedelivery').val(); 
             var categoryDelivery = $('#categoryDelivery').val(); 
             var costOfTripDeci = (distance * 200) + (categoryDelivery + typedelivery); 
             var costOfTrip = Math.round(costOfTripDeci);
-            // var duration_text = duration.text;
-            // var duration_value = duration.value;
-            //$('#in_mile').text(distance_in_mile.toFixed(2));
-            //$('#in_kilo').text(distance_in_kilo.toFixed(2));
+            
             $('#duration_cost').val(costOfTrip);
             $('#duration_text').text(secondsToHms(duration));
-            //$('#duration_value').text(duration_value);
             $('#from').text(origin);
-            // var dArray = [];
-            // var d = $('#to_places').val();  
-            // dArray.push(d);
+            
             var ds = $('input[name^=receiver_address]').map(function(idx, elem) {
                 return $(elem).val();
             }).get();          
 
-            // for (var i=0; i < ds.length; i++){
-            //     dArray.push(ds[i]);
-            // }
+            
             var to = '';
             for (var i = 0; i < ds.length; i++){
                 to += ds[i] + ' To ';
