@@ -20,6 +20,7 @@
         });
         // calculate distance
         function calculateDistance() {
+            alert(formClonCount);
             var origin = $('#origin').val();
             var destination = $('#destination').val();
             var service = new google.maps.DistanceMatrixService();

@@ -32,13 +32,13 @@
                                         <input type="hidden" name="sender_branch_id" value="4">
                                         <div class="form-group">
                                             <label for="percel_note">Enter your Percel description</label>
-                                            <input type="text" name="percel_note" id="percel_note" class="form-control required">
+                                            <input type="text" name="percel_note" id="percel_note" class="form-control" required>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <div class="form-group">                                                   
                                                     <select  name="typedelivery" id="typedelivery" class="form-control" required>
-                                                        <option>Select Type of Delivery</option>
+                                                        <option selected disabled>Select delivery type</option>
                                                         <option>Express Delivery</option>
                                                         <option>Reular Delivery</option>
                                                     </select>
@@ -47,7 +47,7 @@
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <div class="form-group">                                                   
                                                     <select type="text" name="categoryDelivery" id="categoryDelivery" class="form-control" required>
-                                                        <option>Select Delivery Category</option>
+                                                        <option selected disabled>Select delivery category</option>
                                                         <option>Percel less than 10Kg (Bike)</option>
                                                         <option>Percel greater than 10Kg (Car)</option>
                                                     </select>
@@ -73,8 +73,9 @@
                                             <label for="sender_email">Sender email</label>
                                             <input type="email" name="sender_email" id="sender_email" class="form-control required ">
                                         </div>
-                                        <div class="form-group">                                          
-                                          <input type='text' name="additional_message" id="from_places" class="form-control" placeholder="Enter pickup location">
+                                        <div class="form-group">                
+                                            <label for="from_places">Pickup location</label>                          
+                                          <input type='text' name="from_places" id="from_places" class="form-control">
                                           <input id="origin" type="hidden" name="sender_address" />
                                       </div>
                                        
@@ -88,19 +89,20 @@
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_name">Receiver full name</label>
-                                                    <input type="text" name="receiver_name" id="receiver_name" class="form-control">
+                                                    <input type="text" name="addresses[receiver_name][]" id="receiver_name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_phone">Receiver phone number</label>
-                                                    <input type="tel" name="receiver_phone" id="receiver_phone" class="form-control">
+                                                    <input type="tel" name="addresses[receiver_phone][]" id="receiver_phone" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-12">
                                                 <div class="form-group">
-                                                    <input type='text' name="additional_message" id="to_places" class="form-control" placeholder="Enter  drop off location">
-                                                    <input id="destination" type="hidden" name="receiver_address" required/>
+                                                    <label for="to_places">Drop off address</label>
+                                                    <input type='text' name="additional_message" id="to_places" class="form-control" required/>
+                                                    <input id="destination" type="hidden" name="addresses[receiver_address][]"/>
                                                 </div>
                                             </div>
                                         </div>

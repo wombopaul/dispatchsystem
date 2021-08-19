@@ -2,23 +2,24 @@
 <div class="row" id="{{$id}}">
     <div class="col-lg-6 col-md-6 col-6">
         <div class="form-group">
-            <label for="address[receiver_name][]">Receiver full name</label>
-            <input type="text" name="address[receiver_name][]" id="address[receiver_name][]" class="form-control">
+            <label for="{{"receiver_name_" . $id }}">Receiver full name</label>
+            <input type="text" name="address[receiver_name][]" id="{{"receiver_name_" . $id }}" class="form-control">
         </div>
     </div>
     <div class="col-lg-6 col-md-6 col-6">
         <div class="form-group">
-            <label for="addresses[receiver_phone][]">Receiver phone number</label>
-            <input type="tel" name="addresses[receiver_phone][]" id="addresses[receiver_phone][]" class="form-control">
+            <label for="{{ "receiver_phone_" . $id }}">Receiver phone number</label>
+            <input type="tel" name="addresses[receiver_phone][]" id="{{ "receiver_phone_" . $id }}" class="form-control">
         </div>
     </div>
     <div class="col-lg-10 col-md-10 col-12">
         <div class="form-group">
-            <input type='text' name="addresses[receiver_address][]" id="{{ 'to_' . $id }}" class="form-control destination" placeholder="Enter  drop off location">
+            <label for="{{ 'to_' . $id }}">Drop off location</label>
+            <input type='text' name="addresses[receiver_address][]" id="{{ 'to_' . $id }}" class="form-control">
             <input id="{{ 'to_hidden_' . $id }}" type="hidden" name="addresses[receiver_address][]" required/>
         </div>
     </div>
-    <div class="col-md-2 ml-0 mr-0  pl-0 pr-0">
+    <div class="col-md-2 mt-2">
         <div class="form-group">
             <label class="col-form-label">&nbsp;</label><br>
             <a href="javascript:void(0)" class="text-danger removeCloned" data-removediv="{{ $id }}" title="Remove"><i class="fa fa-times-circle text-danger"></i></a>
@@ -33,17 +34,9 @@
         var to = new google.maps.places.Autocomplete(input);
         
         google.maps.event.addListener(to, 'place_changed', function () {
-            alert(hiddenId);
-            var to_formatted = to.getPlace().formatted_address;
-            alert(to_formatted);
-            
+            var to_formatted = to.getPlace().formatted_address;            
             $('#' + hiddenId).val(to_formatted);
         });
 
-        // google.maps.event.addListener(to, 'place_changed', function () {
-        //         var to_place = to.getPlace();
-        //         var to_address = to_place.formatted_address;
-        //         $('#destination').val(to_address);
-        // });
     })
 </script>
