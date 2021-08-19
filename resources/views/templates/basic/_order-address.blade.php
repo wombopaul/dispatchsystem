@@ -3,20 +3,20 @@
     <div class="col-lg-6 col-md-6 col-6">
         <div class="form-group">
             <label for="{{"receiver_name_" . $id }}">Receiver full name</label>
-            <input type="text" name="address[receiver_name][]" id="{{"receiver_name_" . $id }}" class="form-control">
+            <input type="text" name="receiver_name[]" id="{{"receiver_name_" . $id }}" class="form-control">
         </div>
     </div>
     <div class="col-lg-6 col-md-6 col-6">
         <div class="form-group">
             <label for="{{ "receiver_phone_" . $id }}">Receiver phone number</label>
-            <input type="tel" name="addresses[receiver_phone][]" id="{{ "receiver_phone_" . $id }}" class="form-control">
+            <input type="tel" name="receiver_phone[]" id="{{ "receiver_phone_" . $id }}" class="form-control">
         </div>
     </div>
     <div class="col-lg-10 col-md-10 col-12">
         <div class="form-group">
             <label for="{{ 'to_' . $id }}">Drop off location</label>
-            <input type='text' name="addresses[receiver_address][]" id="{{ 'to_' . $id }}" class="form-control">
-            <input id="{{ 'to_hidden_' . $id }}" type="hidden" name="addresses[receiver_address][]" required/>
+            <input type='text' name="receiver_address[]" id="{{ 'to_' . $id }}" class="form-control">
+            <input id="{{ 'to_hidden_' . $id }}" type="hidden" name="receiver_address_hidden[]" required/>
         </div>
     </div>
     <div class="col-md-2 mt-2">

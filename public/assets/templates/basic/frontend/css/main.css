@@ -85,30 +85,30 @@ p:last-child {
 
 @media (min-width: 768px) {
     h1 {
-        font-size: 76px;
+        /* font-size: 76px; */
         line-height: 86px;
         margin-top: -16px;
     }
 
     h2 {
-        font-size: 54px;
+        /* font-size: 54px; */
         line-height: 64px;
         margin-top: -7px;
     }
 
     h3 {
-        font-size: 36px;
+        /* font-size: 36px; */
         line-height: 46px;
         margin-top: -4px;
     }
 
     h4 {
-        font-size: 30px;
+        /* font-size: 30px; */
         margin-top: -5px;
     }
 
     h5 {
-        font-size: 24px;
+        /* font-size: 24px; */
         margin-top: -4px;
     }
 

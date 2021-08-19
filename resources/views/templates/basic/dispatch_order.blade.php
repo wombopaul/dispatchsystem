@@ -39,8 +39,8 @@
                                                 <div class="form-group">                                                   
                                                     <select  name="typedelivery" id="typedelivery" class="form-control" required>
                                                         <option selected disabled>Select delivery type</option>
-                                                        <option>Express Delivery</option>
-                                                        <option>Reular Delivery</option>
+                                                        <option value="1000">Express Delivery</option>
+                                                        <option value="500">Reular Delivery</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -48,8 +48,9 @@
                                                 <div class="form-group">                                                   
                                                     <select type="text" name="categoryDelivery" id="categoryDelivery" class="form-control" required>
                                                         <option selected disabled>Select delivery category</option>
-                                                        <option>Percel less than 10Kg (Bike)</option>
-                                                        <option>Percel greater than 10Kg (Car)</option>
+                                                        <option value="500">Percel less than 10Kg (Bike)</option>
+                                                        <option value="1000">Percel Less than 50Kg (Car)</option>
+                                                        <option value="2000">Percel greater than 50Kg (Car)</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -102,7 +103,7 @@
                                                 <div class="form-group">
                                                     <label for="to_places">Drop off address</label>
                                                     <input type='text' name="additional_message" id="to_places" class="form-control" required/>
-                                                    <input id="destination" type="hidden" name="addresses[receiver_address][]"/>
+                                                    <input id="destination" type="hidden" name="receiver_address[]"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +131,7 @@
                                                   </h5>
                                                         <label style="color:Yellow">Estimated  Duration without Traffic: <span id="duration_text"></span>
                                                      <div class='row'>
-                                                         <div class='col-lg-2'><h2 style="color:Yellow">₦</h2></div>
+                                                         {{-- <div class='col-lg-2'><h2 style="color:Yellow">₦</h2></div> --}}
                                                          <div class='col-lg-6'><h2 style="color:Yellow" id="duration_cost2"></h2>
                                                          <input type='hidden' id="duration_cost" name="amount">
                                                         </div>
@@ -139,8 +140,7 @@
                                                   </div>
                                               </li>
                                               <li>
-                                                  <div class="checkbox_radio_container">
-                                                     
+                                                  <div class="checkbox_radio_container">                                                     
                                                       <input type="checkbox" id="question_3_opt_1" name="question_3[]" class="required" value="Google and Search Engines" onchange="getVals(this, 'question_3');">
                                                       <label class="checkbox" for="question_3_opt_1"></label>
                                                       <label for="question_3_opt_1" class="wrapper">Am fine with this</label>
