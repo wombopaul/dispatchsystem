@@ -126,18 +126,27 @@
                                             <li>
                                             <div class="checkbox_radio_container">
                                                 <div class="row">
-                                                    <div class='col-sm-12'><h2 style="color:white">The Delivery will cost you: </h2></div>
-                                                    <div class='col-sm-12'><h4 style="color:Yellow">Origin:</h4> <span id="from" class="badge badge-primary badge-pill"></span></div>
-                                                    <div class='col-sm-12'> <h4 style="color:Yellow"> To:</h4> 
-                                                    <p id="to" class="col-sm-12" style="with:auto;"></p> 
+                                                    <div class='col-sm-12'>
+                                                        <h2 style="color:white">The Delivery will cost you: </h2>
                                                     </div>
-                                                    <div class='col-sm-12'><label style="color:Yellow">Estimated  Duration without Traffic: <span id="duration_text"></span></div>
-                                                    <div class='col-sm-6'></div>
+                                                    <div class='col-sm-12'>
+                                                        <h5 style="color:Yellow">Origin:</h5> 
+                                                        <p id="from" class="col-sm-12 mt-1"></p>
+                                                    </div>
+                                                    <div class='col-sm-12 mt-2'> 
+                                                        <h5 style="color:Yellow"> To:</h5> 
+                                                        <p id="to" class="col-sm-12 mt-1" style="with:auto;"></p> 
+                                                    </div>
+                                                    <div class='col-sm-12 mt-2'>
+                                                        <h5 style="color:Yellow">Estimated  Duration without Traffic:</h5>
+                                                        <p class="col-sm-12 mt-1" id="duration_text"></p>
+                                                    </div>
+                                
 
                                                 </div>
                                               
                                                      <div class='row'>
-                                                         {{-- <div class='col-lg-2'><h2 style="color:Yellow">₦</h2></div> --}}
+                                                         {{-- <div class='col-lg-2 mt-2'><h2 style="color:Yellow">₦</h2></div> --}}
                                                          <div class='col-lg-6'><h2 style="color:Yellow" id="duration_cost2"></h2>
                                                          <input type='hidden' id="duration_cost" name="amount">
                                                         </div>
