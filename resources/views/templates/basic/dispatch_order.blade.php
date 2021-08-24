@@ -129,9 +129,9 @@
                                                     <div class='col-sm-12'>
                                                         <h2 style="color:white">The Delivery will cost you: </h2>
                                                     </div>
-                                                    <div class='col-sm-12'>
+                                                    <div class='col-sm-12 mt-1'>
                                                         <h5 style="color:Yellow">Origin:</h5> 
-                                                        <p id="from" class="col-sm-12 mt-1"></p>
+                                                        <p id="from" class="col-sm-12 "></p>
                                                     </div>
                                                     <div class='col-sm-12 mt-2'> 
                                                         <h5 style="color:Yellow"> To:</h5> 
