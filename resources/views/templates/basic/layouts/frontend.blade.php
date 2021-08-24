@@ -64,9 +64,9 @@
     <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyA5l7mjh_T5UCviwCoPTeRaUT-5tF_C7sU"  type="text/javascript"></script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/autoMatrix.js')}}"></script> 
-    <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.min.js')}}"></script>
+    <!-- <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery3.1.1.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'frontend/js/jquery-3.3.1.min.js')}}"></script> -->
     <script src="{{asset($activeTemplateTrue.'frontend/js/jquery.validate.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/rafcounter.min.js')}}"></script>
@@ -80,7 +80,7 @@
     <script src="{{asset($activeTemplateTrue.'frontend/js/common_scripts.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/functions.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'frontend/js/survey_func.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap4.0.0.min.js')}}"></script>
+    <!-- <script src="{{asset($activeTemplateTrue.'frontend/js/bootstrap4.0.0.min.js')}}"></script> -->
     <script src="{{asset($activeTemplateTrue.'frontend/js/interswitch.js')}}"></script>
     <script type="text/javascript" src="https://qa.interswitchng.com/collections/public/javascripts/inline-checkout.js"></script>
   

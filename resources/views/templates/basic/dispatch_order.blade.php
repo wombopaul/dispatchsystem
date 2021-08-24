@@ -40,7 +40,7 @@
                                                     <select  name="typedelivery" id="typedelivery" class="form-control" required>
                                                         <option selected disabled>Select delivery type</option>
                                                         <option value="1000">Express Delivery</option>
-                                                        <option value="500">Reular Delivery</option>
+                                                        <option value="500">Regular Delivery</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -90,13 +90,13 @@
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_name">Receiver full name</label>
-                                                    <input type="text" name="addresses[receiver_name][]" id="receiver_name" class="form-control">
+                                                    <input type="text" name="receiver_name[]" id="receiver_name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-6">
                                                 <div class="form-group">
                                                     <label for="receiver_phone">Receiver phone number</label>
-                                                    <input type="tel" name="addresses[receiver_phone][]" id="receiver_phone" class="form-control">
+                                                    <input type="tel" name="receiver_phone[]" id="receiver_phone" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-12">
