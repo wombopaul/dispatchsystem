@@ -27,6 +27,20 @@
         .rotate-x{
                 background-color: green !important;
             }
+            #map-canvas {
+            width: 100%;
+            height: 300px;
+            position: relative;
+	        top: 20px;
+            }
+            .x {
+                width: 120% !important;
+	position: absolute;
+	top: 500px;
+}
+#myMapModal {
+    width: 120%;
+}
         </style>
 </head>
 
@@ -181,7 +195,34 @@
         $globalInclude = false;
         echo $globalInclude;
         @endphp
-    <script type="text/javascript">
+        <script>
+            var element = $(this);
+            var map;
+            function initialize(myCenter) {
+            var marker = new google.maps.Marker({
+                position: myCenter
+            });
+
+            var mapProp = {
+                center: myCenter,
+                zoom: 7,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+            marker.setMap(map);
+            };
+
+            $('#myMapModal').on('show.bs.modal', function(e) {
+            var element = $(e.relatedTarget);
+            var data = element.data("lat").split(',');
+            var latlng = new google.maps.LatLng(data[0], data[1]);
+            initialize(latlng);
+            $("#lat").html(latlng.lat() + ", " +latlng.lng());
+            google.maps.event.trigger(map, 'resize');
+            });
+        </script>
+    <!-- <script type="text/javascript">
             //Use the id of the form instead of #change
         $('#change').click(function(){
         //this is just getting the value that is selected
@@ -202,7 +243,7 @@
             $('#sum').val(value1 * value2 * value3);
             });
          });
-  </script>   
+  </script>    -->
 
 </body>
 

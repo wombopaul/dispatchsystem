@@ -41,7 +41,7 @@
                             <i class="las la-truck-pickup"></i>
                         </div>
                         <div class="track__content">
-                            <h5 class="track__title">@lang('Assort')</h5>
+                            <h5 class="track__title">@lang('On Transit')</h5>
                         </div>
                     </div>
                     <div class="track__item @if($orderNumber->status == 1) done @endif">
@@ -61,7 +61,34 @@
                             <h5 class="track__title">@lang('Completed')</h5>
                         </div>
                     </div>
+                    
                 </div>
+                <div class="row mt-4">
+                       
+                        <div class="container mt-3" style="text-align:center">
+                                <h4>You can View Drivers Location below:</h4>
+                            <a href="#" data-lat="-15,25" data-toggle="modal" data-target="#myMapModal" class="btn btn-primary">Drivers Map</a>
+                        </div>
+
+
+                        <div class="modal fade x " id="myMapModal">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title w-120">GNEXT Drivers Map<span id="lat" class="float-right"></span></h4>
+                                        
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="map-canvas" class=""></div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
             @endif
         </div>
     </section>

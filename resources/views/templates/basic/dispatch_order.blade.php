@@ -221,37 +221,7 @@
           <!-- /row -->
       </div>
 </div>
-  <!-------- Modal Start --->
-<div class="modal fade" tabindex="10" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title"></h4>
-        </div>
-        <div class="modal-body">
-            <p style="font-size:11px; color:red; line-height:20px;">Kindly use a tape to measure your percel as shown in the diagram and enter to get the weight of your percel</p>
-            <div class="row">
-                <div class="col-lg-4 m-0">
-                    <input class='form-control m-0' type="number" name="value1" id="value1"  placeholder="Width">
-                </div> <label>x</label>
-                <div class="col-sm-4 m-0">
-                    <input class='form-control' type="number" name="value2" id="value2"  placeholder="height">
-                </div> <label>x</label>
-                <div class="col-sm-4 m-0">
-                    <input class='form-control' type="number" name="value3" id="value3" placeholder="breath">
-                </div> =
-                <div class="col-sm-6">
-                <input class='form-control' type="number"style="color:black;"  name="sum" id="sum" placeholder="Weight in Kg" readonly></label>
-                </div>
-            
-            </div>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-danger btnClose" data-dismiss="modal">Close</button>
-        </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->    
+
 
 
 @endsection
