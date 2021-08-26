@@ -33,6 +33,11 @@ class CourierInfo extends Model
         return $this->belongsTo(Branch::class, 'sender_branch_id');
     }
 
+    public function courieraddresses()
+    {
+        return $this->belongsTo(CourierAddress::class, 'courier_id');
+    }
+
 
     public function paymentInfo()
     {

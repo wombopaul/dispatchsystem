@@ -31,12 +31,16 @@
                     </div><!-- /.col -->
                     <div class="col-md-4">
                         To
-                        <address class="font-weight-light">
-                            <strong>{{__($courierInfo->receiver_name)}}</strong><br>
-                            {{__($courierInfo->receiver_address)}}<br>
-                            @lang('Phone'): {{__($courierInfo->receiver_phone)}}<br>
-                            @lang('Email'): {{__($courierInfo->receiver_email)}}
-                        </address>
+                    @isset($courierInfo->courieraddresses)
+                        @foreach($courierInfo->courieraddresses as $d)
+                            <address class="font-weight-light">
+                                <strong>{{__($d->full_name)}}</strong><br>
+                                {{__($d->address)}}<br>
+                                @lang('Phone'): {{__($d->phone_number)}}
+                            </address>
+                        @endforeach
+                    @endisset
+                        
                     </div><!-- /.col -->
                 <div class="col-md-4 font-weight-light">
                     <b>@lang('Order Id') #{{__($courierInfo->code)}}</b><br>
